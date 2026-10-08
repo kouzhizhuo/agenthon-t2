@@ -1,0 +1,19 @@
+{
+  "partitions": {
+    "train": {
+      "origins": 190,
+      "units": 95,
+      "all_caseIDs_origins_targetdates_panelhashes_exactV7": true,
+      "old_roster_sha256": "64331dca1e599d8a3c4bc562a255bda766b079a97a9c4933e024865fb468b0d2"
+    },
+    "validation": {
+      "origins": 156,
+      "units": 78,
+      "all_caseIDs_origins_targetdates_panelhashes_exactV7": true,
+      "old_roster_sha256": "9230d480278566c1d244c4412c542af1a2466139ffbe31d403ec3a5ba34c14d3"
+    }
+  },
+  "total_origins": 346,
+  "same_consumed_roster": true,
+  "new_forecasts": 0
+}

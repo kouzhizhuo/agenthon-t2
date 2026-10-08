@@ -1,0 +1,150 @@
+{
+  "reviewer": "/root/track3",
+  "passed_saved_arithmetic_audit": true,
+  "frozen_paths_checked": 22,
+  "controls53_verified": true,
+  "all48truth_arrays_and1301rowinputs_reconstructed": true,
+  "forecast_reruns": 0,
+  "full288rows_144pairs_no_survivor_exclusion": true,
+  "inner1152gate_reconstructions_temporal_and_arithmetic_exact": true,
+  "outer144saved_invariant_receipts_passed": true,
+  "max_absolute_arithmetic_errors": {
+    "scale": 0.0,
+    "gate_mean": 0.0,
+    "documented_score": 4.440892098500626e-16,
+    "scalar": 0.0,
+    "loss_projection": 2.6645352591003757e-15
+  },
+  "regime_equal_truthpath_equal_seed_weighting": true,
+  "regimes": {
+    "stable_zero_drift": {
+      "normalized_ratio": 0.9951910955476231,
+      "truthpath_count": 12,
+      "admitted_truthpaths": 5,
+      "harmful_truthpaths": [
+        10802,
+        10809
+      ],
+      "max_truthpath_score_ratio": 1.0007916199282034,
+      "percell_marginal_ratios": [
+        0.9819280544608775,
+        1.004501183609675,
+        0.9811055112989955,
+        0.9866323944588532
+      ],
+      "mean_perquantile_pinball_ratios": [
+        1.0029272936535332,
+        1.0030674615448785,
+        0.9964533502404983,
+        0.9974192872216694
+      ],
+      "worsened_individual_marginal_cells": 17,
+      "worsened_individual_quantile_cells": 120,
+      "mean_native_forecast_cost_ratio": 39.55380839142486,
+      "baseline_mean_seconds": 0.004342937463661611,
+      "candidate_mean_seconds": 0.17177971629361202,
+      "candidate_max_seconds": 0.1860537499887868
+    },
+    "persistent_common_drift": {
+      "normalized_ratio": 0.9982089833236346,
+      "truthpath_count": 12,
+      "admitted_truthpaths": 1,
+      "harmful_truthpaths": [],
+      "max_truthpath_score_ratio": 1.0,
+      "percell_marginal_ratios": [
+        0.9894080863746395,
+        1.0028022190565065,
+        0.993227992878141,
+        1.0030913501839052
+      ],
+      "mean_perquantile_pinball_ratios": [
+        1.0019952555394582,
+        0.990785617177693,
+        0.9973192678466812,
+        0.9980706748460548
+      ],
+      "worsened_individual_marginal_cells": 6,
+      "worsened_individual_quantile_cells": 21,
+      "mean_native_forecast_cost_ratio": 38.83675493412211,
+      "baseline_mean_seconds": 0.004508550831815175,
+      "candidate_mean_seconds": 0.17509748376323836,
+      "candidate_max_seconds": 0.2156565840123221
+    },
+    "drift_reversal": {
+      "normalized_ratio": 0.9970547984390047,
+      "truthpath_count": 12,
+      "admitted_truthpaths": 2,
+      "harmful_truthpaths": [],
+      "max_truthpath_score_ratio": 1.0,
+      "percell_marginal_ratios": [
+        0.9876963912470792,
+        0.9955508893707857,
+        0.9951524179798823,
+        0.9976490472489248
+      ],
+      "mean_perquantile_pinball_ratios": [
+        1.003619406608775,
+        1.0002144854652995,
+        0.9964018121712015,
+        0.9972818593573952
+      ],
+      "worsened_individual_marginal_cells": 5,
+      "worsened_individual_quantile_cells": 45,
+      "mean_native_forecast_cost_ratio": 38.7752269562916,
+      "baseline_mean_seconds": 0.004486526650402442,
+      "candidate_mean_seconds": 0.17396608911480543,
+      "candidate_max_seconds": 0.1948568749940022
+    },
+    "volatility_jump": {
+      "normalized_ratio": 0.9929475355715498,
+      "truthpath_count": 12,
+      "admitted_truthpaths": 5,
+      "harmful_truthpaths": [
+        10802
+      ],
+      "max_truthpath_score_ratio": 1.0000185404975301,
+      "percell_marginal_ratios": [
+        0.9746624604968063,
+        1.002372663513656,
+        0.9846981288233557,
+        0.987028233049903
+      ],
+      "mean_perquantile_pinball_ratios": [
+        1.0026436362823339,
+        0.9752319440590655,
+        0.9974240646251428,
+        0.9952844486765186
+      ],
+      "worsened_individual_marginal_cells": 15,
+      "worsened_individual_quantile_cells": 113,
+      "mean_native_forecast_cost_ratio": 38.58176744544573,
+      "baseline_mean_seconds": 0.004669879650464234,
+      "candidate_mean_seconds": 0.18017221067243044,
+      "candidate_max_seconds": 0.2222391249379143
+    }
+  },
+  "admitted_truthpaths": 13,
+  "harmful_admitted_truthpaths": [
+    [
+      "stable_zero_drift",
+      10802
+    ],
+    [
+      "stable_zero_drift",
+      10809
+    ],
+    [
+      "volatility_jump",
+      10802
+    ]
+  ],
+  "old_forecast_calls": 1152,
+  "total_native_synthetic_elapsed_sec": 26.987488875049166,
+  "cumulative_native_process_peak_RSS_bytes": 161071104,
+  "max_outer_pairwise_rounding": 8.881784197001252e-16,
+  "max_outer_variogram_rounding": 6.661338147750939e-16,
+  "bool_predecessor_preserved_and_firstpair_repeated": true,
+  "sourceonly_boolrepair_verified": true,
+  "conclusion": "One finite consumed train/validation continuation is mechanically reasonable under unchangedcandidate/roster/gates only; the synthetic evidence is weak (<0.8%regime gains), incurs~39x inprocess forecastcost, and cannotpromotev8. No reserve/upload/retuning; reportfullfamily/cell/quantile/cost and rejectifuseful2%validation/noharmgates fail.",
+  "limits": "No saved forecastsamples: actualdrawpairwise/CRPS/quantiles cannotindependentlyrecompute; sourcealgebraicproof plus savedloss/checkreceipts audited. Independentlyreconstructedtruth, Gaussianinputnormalizers, oldscalar andtimingweighting, notforecasts. Timesinprocess modelcallsonly excludeimports/CLI/scorer/journals; memorycumulativeMacprocesspeak, no Linux/officialclaim. Seeds/regimes sharetruthnoise/history;39rows=13paths, not39independentgains. Firstpair exposedbefore mechanicalboolrepair."
+}

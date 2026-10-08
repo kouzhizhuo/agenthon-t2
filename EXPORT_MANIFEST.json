@@ -1,0 +1,229 @@
+{
+  "export": "agenthon-t2",
+  "destination": "/Volumes/Alan/Nips_com/repos/agenthon-t2",
+  "public_repo_target": "https://github.com/kouzhizhuo/agenthon-t2",
+  "files": [
+    {
+      "export_path": ".gitignore",
+      "sha256": "ee5cda428b1e0ff3662d5661bb2e532c7d4c46f94ee8273e9e078bbba88a91d1",
+      "bytes": 114,
+      "source_path": "Generated Track 2-only export documentation/status from pinned receipts in /Volumes/Alan/Nips_com/t2",
+      "copy_mode": "generated_summary"
+    },
+    {
+      "export_path": "EXPORT_COPY_MAP.json",
+      "sha256": "dffc3fdd1c6ea418cb75d65ba317994fbafcf07994a7c2b64adaefbf2eb3843f",
+      "bytes": 7067,
+      "source_path": "Generated Track 2-only export documentation/status from pinned receipts in /Volumes/Alan/Nips_com/t2",
+      "copy_mode": "generated_summary"
+    },
+    {
+      "export_path": "LICENSE",
+      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1",
+      "bytes": 1036,
+      "source_path": "/Volumes/Alan/Nips_com/Agenthon-2026/02_track2_forecasting/LICENSE",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "NOTICE.md",
+      "sha256": "ff5a391259d2e36399842dc6b8009e4376e1522b13d9e182e51ff7f6b04f9042",
+      "bytes": 986,
+      "source_path": "Generated Track 2-only export documentation/status from pinned receipts in /Volumes/Alan/Nips_com/t2",
+      "copy_mode": "generated_summary"
+    },
+    {
+      "export_path": "README.md",
+      "sha256": "a89aec0ff6e5ffda0254a60545b9d7630b18cafb9600a525e92709a62add726f",
+      "bytes": 3149,
+      "source_path": "Generated Track 2-only export documentation/status from pinned receipts in /Volumes/Alan/Nips_com/t2",
+      "copy_mode": "generated_summary"
+    },
+    {
+      "export_path": "VERSION_STATUS.json",
+      "sha256": "d453806cdffaf2b1dff9368e5142d8b17e4e42588cbe4767c8c1cf319b7bb92b",
+      "bytes": 1623,
+      "source_path": "Generated Track 2-only export documentation/status from pinned receipts in /Volumes/Alan/Nips_com/t2",
+      "copy_mode": "generated_summary"
+    },
+    {
+      "export_path": "notices/UPSTREAM-DATA-LICENSE.md",
+      "sha256": "3a583fc017053771d8920beae88a69e66e031915ef3cce337dd92b4b1fabd264",
+      "bytes": 6446,
+      "source_path": "/Volumes/Alan/Nips_com/Agenthon-2026/02_track2_forecasting/DATA-LICENSE.md",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "notices/UPSTREAM-THIRD-PARTY-NOTICES.md",
+      "sha256": "bb00e2f1efc8dd5563ae0a586d808df7ad6b62fdc392f05682b118b96f57f1c6",
+      "bytes": 10575,
+      "source_path": "/Volumes/Alan/Nips_com/Agenthon-2026/02_track2_forecasting/THIRD-PARTY-NOTICES.md",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "provenance/OFFICIAL_SAVED_STATUS.json",
+      "sha256": "d4146b4e50312b7db61b0f8335557d6fec6e636e27162809748ad4767a722b8e",
+      "bytes": 350,
+      "source_path": "/Volumes/Alan/Nips_com/t2/submission1008v2/site_verification.json",
+      "copy_mode": "generated_summary"
+    },
+    {
+      "export_path": "provenance/OFFICIAL_V2_SOURCE_MANIFEST.json",
+      "sha256": "8be24cf165acc01199f60b85f1c9cfaf095fdd8c51a85420bed564898961f598",
+      "bytes": 651,
+      "source_path": "/Volumes/Alan/Nips_com/t2/submission1008v2/source_manifest.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "requirements.txt",
+      "sha256": "1d1dee078db477deec0b90d326545f4f8aab28296ee8f7224542b32afc76b114",
+      "bytes": 196,
+      "source_path": "/Volumes/Alan/Nips_com/t2/submission1008v2/requirements-runtime.txt",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v5/decision.json",
+      "sha256": "de485b34f42cef10a6ae6487ee25d9160fb6ee62dbb2833ac5f5b9c320fe2d25",
+      "bytes": 1358,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v5/decision.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v6/decision.json",
+      "sha256": "fc53077c9a7a49a61c6603d930d30588d3a847f15d4fe25021296b99dae8976f",
+      "bytes": 1355,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v6/decision.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v7/decision.json",
+      "sha256": "5ca3e22f01133f45ebdea8803442d4e90ed510ffb03bfde0eb7e24c7a9275d03",
+      "bytes": 2265,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v7/decision.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/BOOL_REPAIR_SOURCE_RECEIPT.json",
+      "sha256": "b88ef6821c3aa2223307d2408410017bb5028007a1f0fc4c20c70e21991e34bf",
+      "bytes": 1818,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/BOOL_REPAIR_SOURCE_RECEIPT.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/BOOL_SERIALIZATION_AMENDMENT.md",
+      "sha256": "6b58c5032097782663281af1db90f02c52685ab54e9129cea121252fac40cf01",
+      "bytes": 1413,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/BOOL_SERIALIZATION_AMENDMENT.md",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/DEVELOPMENT_ROSTER_RECHECK.json",
+      "sha256": "037b5e75338d4ea40d708d7cc44e09b50fe14077e030c2571506cb748f4b4ab8",
+      "bytes": 556,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/DEVELOPMENT_ROSTER_RECHECK.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/INDEPENDENT_DEVELOPMENT_T4.json",
+      "sha256": "358c44ad85006ad67824dc3f6d3bf0138a3c3696eb554c213583d476f36e7d3c",
+      "bytes": 22059,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/independent_saved_development/SAVED_DEVELOPMENT_REVIEW_T4.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/INDEPENDENT_SYNTHETIC_COST_T4.json",
+      "sha256": "099a10583fcfaab7e17de10582be593aaf780ee6b38fda6126ac2ab05f3aa24b",
+      "bytes": 6674,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/independent_saved_review/SAVED_COST_REVIEW_T4.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/INDEPENDENT_SYNTHETIC_T3.json",
+      "sha256": "f900eeb90905c13831d791eaf1df4d4e9e073d5c04f4450c85ae7c688139cc21",
+      "bytes": 5575,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/independent_synthetic_track3_receipt.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/PRE_EXPERIMENT_FREEZE.json",
+      "sha256": "4e77ef07a4865cc971cc9e38361be5a70b94f7bafd6d24081f993d2677895ba6",
+      "bytes": 2379,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/PRE_EXPERIMENT_FREEZE.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/PROTOCOL.json",
+      "sha256": "b425773318d6381d067320a5f59a5df728fa21d79dda48b0112bba2db807de75",
+      "bytes": 9129,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/PROTOCOL.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/REPORT.md",
+      "sha256": "455f11d632bfd3294d95d1a2807b0f7f7b0972dd82e61c018c4bb84944d38e06",
+      "bytes": 12350,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/REPORT.md",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/ROOT_DEVELOPMENT_ADMISSION.json",
+      "sha256": "238184ac32b5eab90fdef1e14b8b7384869c11f41467ec3422b76fede6e820aa",
+      "bytes": 1505,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/ROOT_DEVELOPMENT_ADMISSION.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/STATUS.json",
+      "sha256": "75bbd096d7d9222895ed5c96a9ec2788e85fd2f5bdc36394a5524ce9b4d1ffe4",
+      "bytes": 848,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/STATUS.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/SYNTHETIC_REPORT.md",
+      "sha256": "15e6f1b80351566994f91097283aa8d79cd9960494ea73c1c90590f44c3052b0",
+      "bytes": 5886,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/SYNTHETIC_REPORT.md",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/decision.json",
+      "sha256": "a97b6dc557d4f2593e8fd6341a249cf3b90fea972881fae2dfb33292687a582d",
+      "bytes": 2139,
+      "source_path": "/Volumes/Alan/Nips_com/t2/research1008v8/decision.json",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "runtime/forecast.py",
+      "sha256": "abb2913e67cec7a924a0017723d5df4dab60662b23e8de7c8751d67666a23540",
+      "bytes": 25391,
+      "source_path": "/Volumes/Alan/Nips_com/t2/submission1008v2/source/forecast.py",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "runtime/horizon_contract.py",
+      "sha256": "e82af15975f89bb3f49331bafd63e701a4da6951b9a962936532ca9ac282642c",
+      "bytes": 7123,
+      "source_path": "/Volumes/Alan/Nips_com/t2/submission1008v2/source/horizon_contract.py",
+      "copy_mode": "exact_copy"
+    },
+    {
+      "export_path": "runtime/return_contract.py",
+      "sha256": "aafec76115fc18e57bb11f7b7795ffde42c9b6e38702620e145ccad0a2b020f0",
+      "bytes": 744,
+      "source_path": "/Volumes/Alan/Nips_com/t2/submission1008v2/source/return_contract.py",
+      "copy_mode": "exact_copy"
+    }
+  ],
+  "logical_files_excluding_manifest": 30,
+  "logical_bytes_excluding_manifest": 142760,
+  "exact_official_v2_runtime_hashes_match": true,
+  "forbidden_files": [],
+  "symlinks": 0,
+  "git_initialized": false,
+  "network_push": false,
+  "original_trees_preserved": true,
+  "no_panels_generated_targets_archive_credentials_teamproofs_OCI_blobs_or_othertrack_sources": true,
+  "license": "OrganizerTrack2MITpreserved;dependency/data/thirdpartytermsretainedinnotices;data/dependencybinarybytesnotexported",
+  "final_V8": "Rejected2percentusefulness;53controls/48syntheticpaths/346consumedorigins/2076rows;independentT3synthetic+T4synthetic/developmentsavedreviewsincluded",
+  "manifest_self_hash": "Excluded to avoid circular hash; root can hash this file when packaging."
+}

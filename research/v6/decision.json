@@ -1,0 +1,26 @@
+{
+  "executive_summary": "SingleDNScentermechanism developmentgain1.14%, externalshorttripleprimary1.18%regression; no competitiveadmission.",
+  "decision": "LOCAL_RESEARCH_NOT_DEMONSTRATED_COMPETITIVE",
+  "candidate": "dns_center_pool",
+  "candidate_hashes": {
+    "core.py": "abb2913e67cec7a924a0017723d5df4dab60662b23e8de7c8751d67666a23540",
+    "horizon_contract.py": "e82af15975f89bb3f49331bafd63e701a4da6951b9a962936532ca9ac282642c",
+    "return_contract.py": "aafec76115fc18e57bb11f7b7795ffde42c9b6e38702620e145ccad0a2b020f0",
+    "documented_m0.py": "c7a5429fbfe1815e33d601b6f8dabfd09e381a78ab1e401c73c2f4e4f7e3d580",
+    "forecast.py": "5a5faed5af6509b7e9c7b39cd9a3959ebda5537d93c24cc87819d9812b818213"
+  },
+  "external_primary_ratio": 1.0117607759618907,
+  "external_primary_ci95": [
+    0.9907243239621683,
+    1.0265850785017594
+  ],
+  "external_catastrophe": [],
+  "external_zero_failures": true,
+  "external_primary_origins": 39,
+  "external_diagnostic_cases": 156,
+  "current_cli_gates": 104,
+  "official_score_available": false,
+  "publication_submission_by_this_subtask": false,
+  "user_updated_official_feedback_policy": "Rootmayiterate auditedT2today after eachofficialresult;localcompetitiveclaimstillnotestablished",
+  "next": "No externaloutcome tunedgrid. Rootwaitexistingofficialdispatch thenchoosefeedbackcandidate withlimits."
+}

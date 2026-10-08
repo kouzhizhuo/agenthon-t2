@@ -1,0 +1,28 @@
+{
+  "executive_summary": "Workableinput-resolved jointmixture improves validation3.12%, frozenreserve0.087%tie; misses2%admission anddependentintervalincludesregression. Keepv2.",
+  "decision": "NOT_ADMITTED_KEEP_INCUMBENT",
+  "selected_arm": "prequential_pool",
+  "candidate_hashes": {
+    "core.py": "abb2913e67cec7a924a0017723d5df4dab60662b23e8de7c8751d67666a23540",
+    "horizon_contract.py": "e82af15975f89bb3f49331bafd63e701a4da6951b9a962936532ca9ac282642c",
+    "return_contract.py": "aafec76115fc18e57bb11f7b7795ffde42c9b6e38702620e145ccad0a2b020f0",
+    "volatility.py": "042555296e323afc38d5fdee01a92bca9ddda76d0f1fd7a8a7ad34f2ba83ad04",
+    "forecast.py": "66ec3a8f6bbe72cca0473d70183e9b23208d3412cf9ed53e92dae0e6e93d10c9",
+    "documented_m0.py": "c7a5429fbfe1815e33d601b6f8dabfd09e381a78ab1e401c73c2f4e4f7e3d580"
+  },
+  "primary_ratio": 0.9991273165344244,
+  "ratio_ci95": [
+    0.985740150886536,
+    1.0105409006907131
+  ],
+  "zero_forecast_failures": true,
+  "corrected_reserved_cases": 142,
+  "reserved_units": 79,
+  "oldinterval_overlap": 140,
+  "invalidated_train": "invalidated/pre_exact_month/train",
+  "tests": 28,
+  "current_cli_gates": 104,
+  "official_accuracy_scores": 0,
+  "no_publication_submission": true,
+  "next_round": "v6ratesconditionalcenteroverlay + separatelydeclared independentfinancialbenchmark; v5sourcesimmutable"
+}

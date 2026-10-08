@@ -1,0 +1,41 @@
+{
+  "track": "forecasting",
+  "official_runtime": "V2",
+  "runtime_path": "runtime/",
+  "official_image_digest": "sha256:a74cdd6d29b174144fd3e8a0a9aa3492d9d1228e4301d6ad74a835648e323092",
+  "official_submission": {
+    "id": 968315,
+    "last_saved_status": "Submitting",
+    "checked_at": "2026-10-08T14:18:00+08:00",
+    "official_score": null,
+    "official_rank": null,
+    "logs_available": false,
+    "fresh_live_check": false
+  },
+  "research_status": {
+    "V5": {
+      "state": "NOT_ADMITTED_KEEP_INCUMBENT",
+      "reserve_ratio": 0.9991273165344244,
+      "reason": "<2percentreservegain; dependentintervalcrosses1"
+    },
+    "V6": {
+      "state": "LOCAL_RESEARCH_NOT_DEMONSTRATED_COMPETITIVE",
+      "external_primary_ratio": 1.0117607759618907,
+      "reason": "Externalprimaryregression"
+    },
+    "V7": {
+      "state": "REJECT_FOR_OFFICIAL_SUBMISSION_KEEP_EXACT_V2",
+      "reserve_ratio": 0.9978782650478506,
+      "reason": "<2percentreservegain; F3jointguardregression"
+    },
+    "V8": {
+      "state": "REJECT_FOR_PROMOTION_KEEP_EXACT_V2",
+      "consumed_validation_ratio": 0.9937871056282159,
+      "reason": "<2percentvalidationusefulness; 12.78xmeanmodelcost;4harmfuladmittedorigins",
+      "new_reserve": false,
+      "sourceonly_boolrepair_firstsyntheticpair_repeated": true,
+      "saved_development_audit": "INDEPENDENT_DEVELOPMENT_T4.json:22frozenfiles/346origins/2076rows/1038outer/3297inner/means/CI/cost passed"
+    }
+  },
+  "scope": "Localtrack2-onlysourceexport; no data/targets/credentials/teamproofs/images. Full originalexperiments retained. No officialrank/independence claim."
+}

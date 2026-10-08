@@ -1,0 +1,24 @@
+{
+  "stage": "COMPLETE_REJECTED_KEEP_EXACT_V2",
+  "synthetic_truth_paths": 48,
+  "synthetic_rows": 288,
+  "synthetic_errors": 0,
+  "outer_invariant_checks": 144,
+  "passed_synthetic_falsification": true,
+  "owner_controls": 34,
+  "independent_controls": 19,
+  "development_runs": 2,
+  "official_uploads": 0,
+  "mechanical_repair_exposure": "Firstpairedsyntheticcase repeatedafterJSONboolfix; failedsource/control/partialreceipts preserved",
+  "no_independent_evidence_claim": true,
+  "independent_synthetic_audits": [
+    "independent_synthetic_track3_receipt.json",
+    "independent_saved_review/SAVED_COST_REVIEW_T4.json"
+  ],
+  "development_origins": 346,
+  "development_rows": 2076,
+  "validation_ratio": 0.9937871056282159,
+  "independent_saved_development_audits": [
+    "independent_saved_development/SAVED_DEVELOPMENT_REVIEW_T4.json"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "created_before_implementation": true,
+  "candidate": "guarded_common_rate_location",
+  "objective": "One finite development-only test of a common scalar Treasury location correction whose raw-cell variogram is invariant; no new reserve or official upload.",
+  "baseline": "Exact submitted v2, frozen forecast/core and horizon/return helpers.",
+  "scope": "Only grids composed entirely of known daily additive UST maturity level/yield targets under current variogram scoring. Unsupported, mixed, monthly, return, FX or energy-score grids preserve exact v2. Daily support explicitly requires median_calendar_step<=3 calendar days; slower observations fall back exactly.",
+  "one_mechanism": "From exact v2 evidence compute cell discrepancies d=actualGaussianDrawShare*(anchor-GaussianMean). Let g=median(d), bounded to +/-0.25 times smallest finite positive Gaussian horizon SD. Apply g identically to every asset/horizon of every complete joint draw, only if fixed input-resolved marginal/tail gate admits. No volatility/DNS/text/weight model added.",
+  "invariant": "For raw scored cells (x_i+g)-(x_j+g)=x_i-x_j: pairwise draw differences and p=.5 variogram invariant up to floating rounding. This does not preserve energy, marginal or tail scores, or predict accuracy.",
+  "gate_pending_independent_feasibility_review": false,
+  "gate": {
+    "max_windows": 8,
+    "min_windows": 4,
+    "inner_draws": 200,
+    "inner_seed": 0,
+    "minimum_daily_history": 252,
+    "origin_policy": "Most recent complete nonoverlapping fully resolved old windows of exact outer targetgrid; each old targetdate<=currentasof and oldpanels/text cutoff at oldorigin, gap-safe windows. No nested candidate gate: compare exact v2 and ungated scalar correction at each oldorigin.",
+    "admission": "Equal-window mean input-normalized marginal fairCRPS <=0.98*v2 and mean normalized fourquantile pinball <=v2. No fitted weight/threshold/grid; no outertargets. Variogram numerical equality required. Exactfallback if insufficient windows or guard fails.",
+    "normalization": "Frozen documented Gaussian M0 expected-loss formulas from each oldorigin input-only Gaussian300 parameters. Gate uses separate marginal/tail means without clip, not composite ranking. Record allquantile/horizon diagnostics but do not fit gates after outcomes. Exactoneunit/oneoldwindow means; flatasset-major horizon-minor cells. Gaussian mean/covariance from sameoldv2forecast; normalizers marginal/tail only, joint invariantdiagnostic. Uniform8windows weights.",
+    "resources": "Single numerical thread, existing numpy/pandas/scipy only. One v2 old forecast per8windows; scalar arm uses deterministic translation. No model/network/install/personal compute. No taskID-dependent behavior.",
+    "origin_lattice": "Zero-based position in complete synchronized targetasset dateindex, scanned mostrecentbackward; firstobserveddate>=oldorigin+BDay(h) and >oldorigin, exactlysamecalendar mapping as outerevaluator. Maxalltargetdate<=currentasof; earlier maxdate<lateracceptedorigin. Gaplimit max(10*preorigin median daygap,5). No row-count horizon substitution. Minimum synchronized zero-based origin position251 includes252 observed rows; each targetasset separately has>=252 observations.",
+    "gap_safe_definition": "Minimum252 means preorigin observed values perasset; not252consecutive gap-free observations. Exact v2.safe_changes excludes every individual preorigin long gap when estimating increments. Old origin\u2192alltarget intervals additionally satisfy fixed gap guard. No whole-history rejection is added.",
+    "daily_grid_semantics": "Canonical current GridSpec horizon keys are positive integer businessdays; target_date is sealed reference annotation and not scoringgrid input. For daily candidate require exact v2 effective_panel_steps==declaredhorizons. Ignore stale date hints/outer forecast_spec date hints; stripped old card plus freshly constructed asset/horizon spec govern old daily calls. Only monthly core resolves explicit periods, which always falls back in V8."
+  },
+  "synthetic_falsification": {
+    "truth_seeds": [
+      10800,
+      10801,
+      10802,
+      10803,
+      10804,
+      10805,
+      10806,
+      10807,
+      10808,
+      10809,
+      10810,
+      10811
+    ],
+    "regimes": [
+      "stable_zero_drift",
+      "persistent_common_drift",
+      "drift_reversal",
+      "volatility_jump"
+    ],
+    "assets": [
+      "UST_2Y",
+      "UST_10Y"
+    ],
+    "horizons": [
+      21,
+      63
+    ],
+    "observations": 1500,
+    "origin_index": 1300,
+    "truth_increment_scale": 0.03,
+    "correlation": 0.6,
+    "common_drift": 0.001,
+    "reversal_index": 1250,
+    "volatility_jump_index": 1250,
+    "volatility_jump_multiplier": 3,
+    "draws": 1000,
+    "forecast_seeds": [
+      0,
+      7,
+      19
+    ],
+    "all48paths_retained": true,
+    "stop_rule": "Reject without development if any temporal/invariant/error failure or any synthetic regime normalized mean score >1.05*v2. Synthetic results are falsification evidence, not real-data competitiveness.",
+    "index_semantics": "0basedoriginrow1300; observedhistoryrows0..1300inclusive1301; yroworigin+h for 21/63BD completecalendar. 1500totalrows includingfuturetruth; panels cut atorigin before runtime.",
+    "drift_definition": "stable_zero_drift d=0; persistent_common_drift allrows d=.001; drift_reversal d=.001 for row<1250 then -.001; volatility_jump d=0 and SD.03 before1250 then .09. SameGaussianz pertruthseed acrossregimes; rateanchors3,5."
+  },
+  "development": {
+    "partitions": {
+      "train": {
+        "origin_start": "2005-01-01",
+        "origin_end": "2010-12-31",
+        "target_end_before": "2011-01-01"
+      },
+      "validation": {
+        "origin_start": "2012-01-01",
+        "origin_end": "2015-12-31",
+        "target_end_before": "2016-01-01"
+      }
+    },
+    "origin_policy": "Same outcome-independent eligible/time-separated atmost2origin roster as V7 consumeddevelopment; no freshreserve, no newdates claim.",
+    "draws": 1000,
+    "seeds": [
+      0,
+      7,
+      19
+    ],
+    "primary": "Ratio of equalunit mean reconstructed documentedM0 normalized composite clip8 vs exactv2; rawcomponents, unclipped, perquantile/perhorizon and family diagnostics separately.",
+    "selection": "No arm/parameter search. One frozen candidate, synthetic first then atmostone train+validation run if not falsified; preserve allerrors/results. Any needed sourcefix gets preserved predecessor/newfreeze, no outcome tuning.",
+    "useful_development_evidence": "Aim >=2%validation gain, no trainregression, no family/component >1.05, zeroerrors/invariantfailures and independently reviewed cost. Consumedpanels/previousoutcomes mean no independentstatistical or officialrank claim.",
+    "origin_roster_manifest": "Copy exactV7train/validation caseledgers; verify samecaseIDs/targetdates/panelhashes before dev; noadaptiveorigin selection."
+  },
+  "exposure": "All contest numericpanels/train/validation are consumed through V2\u2013V7. V7 reserve2002\u20132004 and externalpre2000 alreadyconsumed. No further reserve or external data acquisition in this study.",
+  "controls_before_scores": [
+    "odd/even actualGaussianDrawShare",
+    "same finite scalar allcells",
+    "pairwise differences/currentvariogram equality",
+    "energy/marginal/tail canchange",
+    "futurepoison includingnewasset/cardalias/text cutoff",
+    "exactunsupported/energy fallback",
+    "no nestedgate",
+    "oldwindow resolution/nonoverlap/gaps/minhistory/minwindowfallback",
+    "tailgate veto",
+    "perhorizon/quantile residualrisk disclosure",
+    "source/evaluator/harness freeze refusal"
+  ],
+  "status": "INDEPENDENTLY_PRE_REVIEWED_CONTRACT_BOUNDARIES_CLARIFIED_BEFORE_CONTROLS_OUTCOMES",
+  "official_feedback": "Existing V2 official feedback last known pending. No V8 upload; root prioritization and real useful evidence required, quotas are upper bounds.",
+  "independent_precode_review": "INDEPENDENT_PRECODE_REVIEW_T4.md; date/cap/normalization/tolerance clarifications before implementation/outcomes.",
+  "scalar_finite_guard": "Every declared Gaussian mean/covariance diagonal/anchor finite and every cell horizon SD>0; any invalid cell exactfallback, no dropping cell from bound. Gaussian covariance symmetry and positive semidefiniteness also checked using documented M0 tolerance1e-12; malformed/empty asset grid or drawcount fallback.",
+  "numerical_invariance_tolerance": {
+    "pairwise_max_abs": "64*float64_eps*max(1,maxabs(base),abs(g))",
+    "variogram_abs": "256*float64_eps*max(1,raw_variogram)*max(1,ncells**2)",
+    "control_extreme_scale": "Report finite numerical rounding; never loosen fixed tolerances after outcomes."
+  },
+  "partial_failure_policy": "Owner/independent controls frozen before execution. Synthetic writes append-only allarm-row/check/case journals while running, retains errors among all288 declared rows and all48truthpaths, never computes survivor-only ratios. Any control or synthetic failure disallows development. Evaluation has fixed train/validation labels, append-only records and preserves failures."
+}

@@ -1,0 +1,17 @@
+{
+  "decision": "ALLOW_ONE_UNCHANGED_CONSUMED_DEVELOPMENT_COMPARISON",
+  "rationale": "Both saved independent audits match complete48/288synthetic outcomes and1152oldwindows; fixed5percentfalsificationpasses. Gains .18-.71percent remain weak,1percenttail worse .2-.36percent and3admittedpaths harmful. Relativecost39x is material but absolute syntheticmean~.18sec andmax.222sec permits one finite development comparison. No promotion inferred.",
+  "reports_sha256": {
+    "independent_synthetic_track3_receipt.json": "f900eeb90905c13831d791eaf1df4d4e9e073d5c04f4450c85ae7c688139cc21",
+    "independent_saved_review/SAVED_COST_REVIEW_T4.json": "099a10583fcfaab7e17de10582be593aaf780ee6b38fda6126ac2ab05f3aa24b",
+    "synthetic_results.json": "889cf1e5ed67f13852b2cf1740796e380a880781529d69ec2593ed28f84a7e1a",
+    "SYNTHETIC_DIAGNOSTICS.json": "032ece991c9a3ac4011e97e5e687a7b128851d18c871f39fbd44d79fcf38baf5",
+    "HARMFUL_ADMISSION_DIAGNOSTICS.json": "bf2e4230ce6e382f5042c160f0cf1da0429c104cc1712934885adae7835cfb57"
+  },
+  "constraints": [
+    "Exact fixed346consumedtrain/validationorigins and3forecastseeds, verify caseIDs,targetdates,panelhashes before run.",
+    "Same scalar/gates/normalizers/parameters; full failures and family/quantile/horizon/cost diagnostics retained.",
+    "Validation>=2percent usefulness,no trainregression,no family/component>1.05 and zero errors/invariant failures unchanged.",
+    "No reserve, fresh windows, threshold fit, follow-up tuning or official upload."
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "reviewer": "/root/optimize_t4",
+  "phase": "SAVED_ONLY_COMPLEMENTARY_COST_PROVENANCE_REVIEW",
+  "passed": true,
+  "forecast_or_score_runtime_imports": 0,
+  "forecast_reruns": 0,
+  "verified_frozen_sources": 22,
+  "verified_controls": 53,
+  "denominator": {
+    "truth_paths": 48,
+    "success_rows": 288,
+    "paired_rows": 144,
+    "inner_windows_and_old_calls": 1152
+  },
+  "all_sourceonly_boolrepair_and_partial_exposure_preserved": true,
+  "first_pair_repeated_consumed": true,
+  "saved_journal_csv_equal": true,
+  "saved_scalar_gate_normalization_arithmetic_and_nonoverlap_verified": true,
+  "saved_outer_inner_invariant_receipts_verified": true,
+  "fixed_5percent_stop_passed": true,
+  "total_gate_admitted_rows": 39,
+  "harmful_admitted_truthpaths": [
+    [
+      "stable_zero_drift",
+      10802
+    ],
+    [
+      "stable_zero_drift",
+      10809
+    ],
+    [
+      "volatility_jump",
+      10802
+    ]
+  ],
+  "regimes": {
+    "stable_zero_drift": {
+      "normalized_score_ratio": 0.9951910955476235,
+      "mean_gain_percent": 0.48089044523764723,
+      "native_model_call_mean_cost_ratio": 39.55380839142446,
+      "baseline_mean_seconds": 0.004342937463661656,
+      "candidate_mean_seconds": 0.17177971629361208,
+      "candidate_max_seconds": 0.18605374998878688,
+      "mean_pinball_ratio_by_quantile_01_05_95_99": [
+        1.0029272936535334,
+        1.0030674615448785,
+        0.9964533502404983,
+        0.9974192872216694
+      ],
+      "candidate_rows": 36,
+      "gate_admitted_rows": 15
+    },
+    "persistent_common_drift": {
+      "normalized_score_ratio": 0.9982089833236344,
+      "mean_gain_percent": 0.17910166763656088,
+      "native_model_call_mean_cost_ratio": 38.83675493412167,
+      "baseline_mean_seconds": 0.004508550831815228,
+      "candidate_mean_seconds": 0.17509748376323842,
+      "candidate_max_seconds": 0.21565658401232213,
+      "mean_pinball_ratio_by_quantile_01_05_95_99": [
+        1.0019952555394585,
+        0.990785617177693,
+        0.9973192678466812,
+        0.9980706748460549
+      ],
+      "candidate_rows": 36,
+      "gate_admitted_rows": 3
+    },
+    "drift_reversal": {
+      "normalized_score_ratio": 0.9970547984390047,
+      "mean_gain_percent": 0.2945201560995314,
+      "native_model_call_mean_cost_ratio": 38.77522695629121,
+      "baseline_mean_seconds": 0.004486526650402488,
+      "candidate_mean_seconds": 0.1739660891148055,
+      "candidate_max_seconds": 0.19485687499400228,
+      "mean_pinball_ratio_by_quantile_01_05_95_99": [
+        1.0036194066087751,
+        1.0002144854652995,
+        0.9964018121712017,
+        0.9972818593573953
+      ],
+      "candidate_rows": 36,
+      "gate_admitted_rows": 6
+    },
+    "volatility_jump": {
+      "normalized_score_ratio": 0.9929475355715496,
+      "mean_gain_percent": 0.7052464428450422,
+      "native_model_call_mean_cost_ratio": 38.581767445445344,
+      "baseline_mean_seconds": 0.0046698796504642814,
+      "candidate_mean_seconds": 0.1801722106724305,
+      "candidate_max_seconds": 0.2222391249379143,
+      "mean_pinball_ratio_by_quantile_01_05_95_99": [
+        1.0026436362823337,
+        0.9752319440590655,
+        0.9974240646251425,
+        0.9952844486765187
+      ],
+      "candidate_rows": 36,
+      "gate_admitted_rows": 15
+    }
+  },
+  "cost_scope": "Recorded time.monotonic around in-process forecast_samples only; candidate includes outer V2 plus eight old V2 forecasts and calendar search. Excludes imports, scorer, normalizer, journaling, native CLI startup and Linux/official allocation. Absolute 0.172-0.180sec means are small in this synthetic two-asset grid, but ~39x V2 is material and cannot be extrapolated to larger grids.",
+  "quality_limit": "Weak .18-.71percent mean synthetic gains and three harmful admitted paths. All four regime .01 quantile means worsen .20-.36percent despite pooled historical tail gate. Shared truth noise, history and seed reuse are dependent; 39 admitted rows are 13 paths. This permits fixed consumed development only if root agrees; no statistical promotion, reserve, threshold tuning or upload.",
+  "independent_reconstruction_limit": "Raw forecast draws were not retained. Pairwise/CRPS/quantile metrics cannot independently be regenerated from saved rows; verified source scalar algebra and saved receipts only. Track3 separately reconstructed 48 truth/input arrays, Gaussian normalizers and temporal mappings. This audit recomputes saved denominators/scalar/gate/timing/quantile ratios without another forecast.",
+  "saved_hashes": {
+    "PROTOCOL.json": "b425773318d6381d067320a5f59a5df728fa21d79dda48b0112bba2db807de75",
+    "PRE_EXPERIMENT_FREEZE.json": "4e77ef07a4865cc971cc9e38361be5a70b94f7bafd6d24081f993d2677895ba6",
+    "BOOL_REPAIR_SOURCE_RECEIPT.json": "b88ef6821c3aa2223307d2408410017bb5028007a1f0fc4c20c70e21991e34bf",
+    "ROOT_BOOL_REPAIR_REVIEW.json": "8875b9b6572c44c225e44e8528b69488ac2dc93462caeb1df938ee8d73a59ee7",
+    "controls/summary.json": "3f82882cd85f367454d4441733c9e26561686c122de29b01bc6c1a238169c37f",
+    "synthetic_results.json": "889cf1e5ed67f13852b2cf1740796e380a880781529d69ec2593ed28f84a7e1a",
+    "synthetic_scores.csv": "a33edea57f6b67c8f8048f78eab451137488c39a71131dddfba0f7da7b461cf4",
+    "SYNTHETIC_DIAGNOSTICS.json": "032ece991c9a3ac4011e97e5e687a7b128851d18c871f39fbd44d79fcf38baf5",
+    "HARMFUL_ADMISSION_DIAGNOSTICS.json": "bf2e4230ce6e382f5042c160f0cf1da0429c104cc1712934885adae7835cfb57",
+    "independent_synthetic_track3_receipt.json": "f900eeb90905c13831d791eaf1df4d4e9e073d5c04f4450c85ae7c688139cc21",
+    "synthetic_journal/start.jsonl": "2fda544745e9f4697c08c15ed77027d69add89ddc170e89316c3708293d03113",
+    "synthetic_journal/score_rows.jsonl": "5d3af3292fd18178ce800315462d0848ea28144c45592cc936f9efe62015a9f8",
+    "synthetic_journal/truth_paths.jsonl": "e717c1bfcf833a68ad75e7d41cc52333d24d8e1b97353922015de8f1ce5366a2",
+    "synthetic_journal/gate_records.jsonl": "6b371932c3cd9ceb01829a5d585bc7abba032c6ea5c01858c1b43cb5529b724d",
+    "synthetic_journal/invariance.jsonl": "3c83a31d2639580a3e1986d34b80dec5905d43c910f48955ce4dd1648d8434a7",
+    "candidate/forecast.py": "9dff2153a2f640305e07fe42f994de56347eaa39656b92d56673c2b17cf7a081",
+    "pre_bool_serialization/candidate/forecast.py": "d6767c75e4ed4a3df99127f531f9ae53fbd2bb73ea594f78c66183863b161378",
+    "pre_bool_serialization/PRE_EXPERIMENT_FREEZE.json": "a2aa527e0cff35f09ccf1fd5206ca7c9b01d0b48f2a9bf8918a55b594792e48a",
+    "pre_bool_serialization/synthetic_journal/score_rows.jsonl": "0ddf9ebdead40f0e085242c0a14015e7c9167b569227c87cb8e39841a93a3e0b"
+  },
+  "audit_source_sha256": "0ada02ba4df7fa3a8cbf8c860ef3d81ea1de3ecd81d4c7e06a89667d0a0cf145"
+}

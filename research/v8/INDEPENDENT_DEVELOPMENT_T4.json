@@ -1,0 +1,260 @@
+{
+  "reviewer": "/root/optimize_t4",
+  "passed_saved_denominator_arithmetic_review": true,
+  "decision": "REJECT_FIXED_USEFUL_DEVELOPMENT_GAIN_LESS_THAN_2PERCENT",
+  "source_frozen_files": 22,
+  "runtime_imports": 0,
+  "forecast_reruns": 0,
+  "exact_declared_previous_v7_roster_reconstructed": true,
+  "partitions": {
+    "train": {
+      "origins": 190,
+      "units": 95,
+      "rows": 1140,
+      "frozen_source_only_exclusions": 9,
+      "documented_ratio": 0.9942384334058191,
+      "unclipped_ratio": 0.9987522867318371,
+      "gain_percent": 0.5761566594180922,
+      "descriptive_cluster95": [
+        0.9877492727465031,
+        1.0
+      ],
+      "groups": 34,
+      "family": {
+        "T2-F1": {
+          "documented_ratio": 0.9967919353555136,
+          "raw_joint_ratio": 1.0
+        },
+        "T2-F2": {
+          "documented_ratio": 0.9936079284099962,
+          "raw_joint_ratio": 1.0
+        },
+        "T2-F3": {
+          "documented_ratio": 0.9953680695714322,
+          "raw_joint_ratio": 1.0
+        },
+        "T2-F4": {
+          "documented_ratio": 0.9930256469343783,
+          "raw_joint_ratio": 1.0
+        }
+      },
+      "native_model_cost_ratio": 12.396592933968599,
+      "baseline_mean_seconds": 0.004937618500920651,
+      "candidate_mean_seconds": 0.06120964661914556,
+      "admitted_origins": 16,
+      "harmful_admitted_origins": [
+        {
+          "unit_id": "t2-F3-covid-curve-2020",
+          "origin": "2010-07-07",
+          "score_ratio": 1.0066030199629943,
+          "common_shift": 0.005794314381270799,
+          "old_marginal_ratio": 0.9767045038540164,
+          "old_tail_ratio": 0.9930159869664346
+        },
+        {
+          "unit_id": "t2-F3-term-premium-steepener-2023",
+          "origin": "2010-07-07",
+          "score_ratio": 1.0066030199629943,
+          "common_shift": 0.005794314381270799,
+          "old_marginal_ratio": 0.9767045038540164,
+          "old_tail_ratio": 0.9930159869664346
+        }
+      ],
+      "old_calls": 1809,
+      "cell_horizon_diagnostics": "Post-result saved descriptive owner diagnostics; not a gate retune or independent draw reconstruction."
+    },
+    "validation": {
+      "origins": 156,
+      "units": 78,
+      "rows": 936,
+      "frozen_source_only_exclusions": 26,
+      "documented_ratio": 0.9937871056282159,
+      "unclipped_ratio": 0.9937871056282159,
+      "gain_percent": 0.6212894371784072,
+      "descriptive_cluster95": [
+        0.9824548963039441,
+        1.0012006206159063
+      ],
+      "groups": 31,
+      "family": {
+        "T2-F1": {
+          "documented_ratio": 0.9894788301753106,
+          "raw_joint_ratio": 1.0
+        },
+        "T2-F2": {
+          "documented_ratio": 0.9952082001258308,
+          "raw_joint_ratio": 1.0
+        },
+        "T2-F3": {
+          "documented_ratio": 0.995141788662158,
+          "raw_joint_ratio": 1.0
+        },
+        "T2-F4": {
+          "documented_ratio": 0.9983374608949688,
+          "raw_joint_ratio": 1.0
+        }
+      },
+      "native_model_cost_ratio": 12.77770251277708,
+      "baseline_mean_seconds": 0.005935728553937237,
+      "candidate_mean_seconds": 0.07584497365880649,
+      "admitted_origins": 23,
+      "harmful_admitted_origins": [
+        {
+          "unit_id": "t2-F1-patient-dropped-2015",
+          "origin": "2014-03-20",
+          "score_ratio": 1.1541775767510067,
+          "common_shift": -0.04314381270903,
+          "old_marginal_ratio": 0.9581566782142633,
+          "old_tail_ratio": 1.0
+        },
+        {
+          "unit_id": "t2-F2-trade-war-escalation-2019",
+          "origin": "2015-07-02",
+          "score_ratio": 1.073996665278655,
+          "common_shift": 0.0321070234113711,
+          "old_marginal_ratio": 0.9161830016992513,
+          "old_tail_ratio": 1.0
+        },
+        {
+          "unit_id": "t2-F4-covid-rates-2020",
+          "origin": "2015-11-02",
+          "score_ratio": 1.008174382758217,
+          "common_shift": 0.0070234113712375,
+          "old_marginal_ratio": 0.9762332262202423,
+          "old_tail_ratio": 1.0
+        },
+        {
+          "unit_id": "t2-F4-ust10y-supply-2023",
+          "origin": "2015-11-02",
+          "score_ratio": 1.008174382758217,
+          "common_shift": 0.0070234113712375,
+          "old_marginal_ratio": 0.9762332262202423,
+          "old_tail_ratio": 1.0
+        }
+      ],
+      "old_calls": 1488,
+      "cell_horizon_diagnostics": "Post-result saved descriptive owner diagnostics; not a gate retune or independent draw reconstruction."
+    }
+  },
+  "old_calls_total": 3297,
+  "outer_saved_invariants": 1038,
+  "limits": "No raw draws retained; metrics/invariants cannot independently recompute from draws. Saved means/CI/fullroster/cost and temporal receipts verified. CI descriptive over correlated consumed series groups; no reserve, promotion or official quality claim. Costs time model function only and cannot establish CLI/Linux headroom. Owner reports horizon127 upper95 pinball1.092 and upper99 1.054 in two units despite pooled tail gate.",
+  "files": {
+    "t2/research1008v8/PROTOCOL.json": "b425773318d6381d067320a5f59a5df728fa21d79dda48b0112bba2db807de75",
+    "t2/research1008v8/PRE_EXPERIMENT_FREEZE.json": "4e77ef07a4865cc971cc9e38361be5a70b94f7bafd6d24081f993d2677895ba6",
+    "t2/research1008v8/analysis.json": "f3b3626190368b97c96e3deb2020745e226e460e11a59759be94020c4314a7be",
+    "t2/research1008v8/DEVELOPMENT_CASES.json": "2d254f6dca27f4b8a3a92694b5f2356629970a9a0e88f5a5332960b309055b33",
+    "t2/research1008v8/DEVELOPMENT_DIAGNOSTICS.json": "3748116ec3591756691ac559094c45877c553f932571e85d88ca45171fe5bb8e",
+    "t2/research1008v8/DEVELOPMENT_ROSTER_RECHECK.json": "037b5e75338d4ea40d708d7cc44e09b50fe14077e030c2571506cb748f4b4ab8",
+    "t2/research1008v8/results/train/scores.csv": "b0a6d11c63bf822aac8d887d35e897443fe4cd1e49134775be7293b8bafcb509",
+    "t2/research1008v8/results/train/summary.json": "08129a65dab2cdd28fd4f7adaa3b92929039612da7f82f7cd0ce5e1005fae1b0",
+    "t2/research1008v8/results/train/failures.json": "c300e735d0bf60834da589305b50dbbdeafb29f85c1cf084d2fa7c20d94a77bb",
+    "t2/research1008v8/results/train/case_ledger.json": "64331dca1e599d8a3c4bc562a255bda766b079a97a9c4933e024865fb468b0d2",
+    "t2/research1008v8/results/train/case_ledger.jsonl": "bf38232616cb948e9a78af5dce6a726e2beedf9257b83c8dde9d4a89268de01d",
+    "t2/research1008v8/results/train/score_rows.jsonl": "f26ec83937b6254061fa239e5976f1433c2a3bf3d84f66768cb482552a5d26ae",
+    "t2/research1008v8/results/train/candidate_evidence.jsonl": "9409bd77d3081a3d52a3bb0d3c90a58339fefda266133daa1298d90317f600ed",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-ai-mom-2024/card.toml": "aacb12ff3da5f6a15c5982e2566c4256180cdd0f648001593c6c260b2530328f",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-aud-on-hold-2016/card.toml": "214c424af73d03317cc7421d5b3f2501a59b2865b155682645df929d57e174ff",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-cad-boc-2017/card.toml": "c6884abcf223e1eb179591e44762fd46159414aa1a698883d41837009f92532b",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-chf-highly-valued-2021/card.toml": "ae94ca0faaf2351da592cafbb3247708f11070eabd6d770584b86f5bffa21bd3",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-conflicting-texts-2024/card.toml": "f8725ad66f7855ef419e0e7906d0a5435df29bb2aafbccc56e376a8b9ada64ca",
+    "t2/experiments/history1008/sources/current/units/t2-F1-cpi-glidepath-2023/card.toml": "c65ae43766ba6c3dc0721edd49a011c23ec9cf9afc5e188b2c3bc723a7bd6b47",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-dkk-peg-2019/card.toml": "6607467214dac7342ada3f74d5e6a5e32010cf8d7757e28cfdb23f733da60296",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-eur-range-2017/card.toml": "487cd3c11af82959613110b54ecaab4c64e463ec57ede8cb0f671697446f7367",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-fed-put-2019/card.toml": "879f624092256ade069c9ac675758bbf3545b872f666c2259b6bc4bd6a619962",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-greater-confidence-2024/card.toml": "487d8b50f5500e74fc6f4dba7e788bdb949a46a418120f8298270dcf1f777779",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-hawkish-cut-2024/card.toml": "3723cc7984b32d8208d65f40679e3f84109b244d47411593fb086247c4b233a2",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-jpy-ycc-flex-2018/card.toml": "6ff64e78b619f9743448a7c1bd2b21487d9c4ffbaec68102d9ae499f327bb07a",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-liftoff-telegraph-2015/card.toml": "c64990c2d633d96d51c9c378c6320a6ec2ceee7538e1840299f7384a188e5be2",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-normalization-2017/card.toml": "5bc4f341aaa961b55ab2d1935ebd4ea6cd931d64a6e75af934abfc08b1ece62d",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-patient-dropped-2015/card.toml": "17ec3450f71981b9096c32dcf62197338eadb26259e84ef1f5b550144562676a",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-pause-2006/card.toml": "ea3e052539ad3faea0264fa9ae3711e30c7ab8212643ea87495054bf60394562",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-qe3-end-2014/card.toml": "33396196197f3ed37d2bd8b86162f080a68adebe83a80fa42a7a796a6db6e75e",
+    "t2/experiments/history1008/sources/current/units/t2-F1-sahm-watch-2024/card.toml": "127a48915a502a781962e93b4cb6ba813932df1740df492016a125446daaaa3f",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-third-cut-2019/card.toml": "e9296c4a9405b9d220403ab4249f5d00a00356c738d5891bf3aef192c372a1d6",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F1-ust-positioning-2018/card.toml": "4fe03f66ed209980f4f07b91a53e9e79a37106c425a27b3657a97c8a2e13a0fc",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-abenomics-2012/card.toml": "e19fc435f5117a4fe4e614c98137cc11a3430ee0fa6f9d75cf1e60718279dd1b",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-act-as-appropriate-2019/card.toml": "d1fbb061955b92c1707259e7ae3cb1a0a29784a020cdd172446a048c41d5a959",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-aud-taper-2013/card.toml": "3e7f02777c827bdcb009c8d78e69b2958077dc6b4e8d43f6b6732a5907f16b9c",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-boj-thin-signal-2014/card.toml": "1419e025f4952933ecf45a555c01dbbc9f8dc317418b3252546092693d320bd3",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-cnh-stress-2015/card.toml": "6050507805b7887625d1ad9a64d24d50580f031b34c85ed56655d1ead17b8a7f",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-cnh-tradewar-2018/card.toml": "13f8f9f021905d52490d92b775bf43d30fdc729f4a8e62eee233ce555f02a3e9",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-credit-crunch-2007/card.toml": "92346dd5ed7406c0bd8974d55c0daf52855eefd329befbee7c872c1178fde006",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-cut-sizing-2024/card.toml": "e2bcf7933e55a6203c2a5a54e047eb762f54985ab7faab46419eade6dfbe5b92",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-draghi-precommit-2014/card.toml": "e1dcdce6419b2f705cdd6124eea91d6fdf5b84ff43858692ebf2983557cf02b9",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-ecb-qe-telegraph-2014/card.toml": "501fd1d94edd08c6f8616cef96e289a9c135b5d2f5353b9291233b8a6aa1c3f8",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-eur-parity-2022/card.toml": "bbf37cd8334ddc4680e34625625d09d9108488af4324880b3477490c3cdc5340",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-higher-for-longer-2023/card.toml": "13a8891330fa475a8b88101cb7def917edce85070986a4cf91576b33da9695e2",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-nirp-paradox-2016/card.toml": "e502c52d62b8a818fdbd643493ba8f7ac8e8dcfc3479243a9df3b69f4c1feabf",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-opec-cad-2014/card.toml": "47fa13a8fd2700f765123249da789121d49e9a29c1b83137c3b264b04b5f4530",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-powell-pivot-2019/card.toml": "10704eeb0e327292b475a2acdf11ba6f7b05f11101fcc6a789959ad0239740d8",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-qe2-jackson-hole-2010/card.toml": "014e0691fa5aeb3523f879abcb6f8995b28e3f53a02932405751d936141a0191",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-shunto-nirp-exit-2024/card.toml": "7608aa659e7942270edad26983f97c367521a2569f9b0adb19d34b5691159bb7",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-some-pain-2022/card.toml": "af4fae32255d81642e7c3a2dc364efd0e419fb9cfbab6fb4ac107fe5f40a5c82",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-taper-begins-2013/card.toml": "ed3ebe1a7fd9ec7e0251e11373ef0d68e49b5080e29d2ed897861f20ac74cadf",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-taper-testimony-2013/card.toml": "7eb57e38c476050fe887b92171d7154945f59512403b51bc6794f7d483f0c91b",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-time-has-come-2024/card.toml": "4f8892b154afb7fd5a29cb9084a42f52de5e4914df1f852e4b2473f733152dd1",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-trade-war-escalation-2019/card.toml": "dc2b60dab38eb5fa87d2082823725cfa28d5689ca9d6e8051da44a953a5d50bb",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-trichet-alertness-2008/card.toml": "a2011c0334920f60363c131a780a2e209a2d73d0de83cbd559d6282518445210",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F2-whatever-it-takes-2012/card.toml": "9a2ba58fb2405a1fa95c892652900516646ef5718101c245186ca9b6139390b6",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-bear-flattener-2022/card.toml": "5f6fa1eb86d33cde56260762097e4c9102e9ba7ab84a114fdd6b8978f93e6a08",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-boj-ust-channel-2023/card.toml": "2ab0fc7f6dab6d23297148224544d42e1e3ccc4a4f80fa42054c418800b6ae16",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-brexit-joint-2016/card.toml": "b6ebd1b25fbefef064f152116150d8bade117d747a20b234281418b856810bd6",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-covid-curve-2020/card.toml": "121443a2013bffdd50a8b79c6325569e33aaed4ffbc160b29192a523b162d3b4",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-cpi-shock-cross-2022/card.toml": "6bade6e3c4930f1ec61aa518b2c20b413e215ce5a1b1f48cfa6f374c465c6011",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-divergence-2014/card.toml": "b5109ee69ed4c5291e438e4b74290892077a10dc770fd9cac836ca8e79fd7d87",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-dollar-squeeze-2020/card.toml": "b173126af45fa63577c31f58bb93ad8c6b1288439e51be342c64696d7acd51bd",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-dollar-vortex-2022/card.toml": "91f7f422f1df4dbc45294516a3caa1d5276bcc0525f7c4d50702a99c2b3d71f3",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-dots-vs-oil-2014/card.toml": "a039e442e70c68e6fb3c39a786799ab95dc43baa3fca90cef90f2b48efa4ec91",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-election-2024-joint/card.toml": "b38fa4588fd1280a1d824d0bd542c32611bcb1fa3efa0e254c552bdb97447de7",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-funding-flip-2024/card.toml": "efe28b5e04041b77530c2efb411252d661a2623f3f8e61cb6abbf1427976a484",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-hiking-year-curve-2018/card.toml": "47288b1f73fc38fb3261aa167e45e6f3a0db723049bc37b1e7cc8faf73877011",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-inversion-persistence-2019/card.toml": "c4592afec25811d1686de352c2a152f5b65c2cfb46825dc1aebcc30b15f57580",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-oil-fx-split-2022/card.toml": "d05a632af06c1e3efb0a7b74ec4aea6c0a7878a20c45a6794f8b6c0a4dbd7758",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-rates-into-factors-2022/card.toml": "4b32eab6a8165efd45c678e394b61a2c54be6a2f923a5e30b08807caa5f1b10a",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-safe-haven-paradox-2011/card.toml": "57ffb57ac3283d03dc5471be41b3aee914f9abcff61507b0ffa39fc67184574e",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-scandies-stress-2022/card.toml": "f0b1a4992732d738781a9e2f5f599858377071888541c3a15ba67f2a4e9ad368",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-taper-steepener-2013/card.toml": "0a54cb6dc97f0a0ef6d1f10fefbe816757cc7cac2bb81190978926e33ec143bb",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-term-premium-steepener-2023/card.toml": "20e3d2ba18efbd6c83862b8b37975b90fe5d51e21ba715c8d03be3d70e19c91b",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F3-vaccine-rotation-2020/card.toml": "a56aa9a320fcf436b306777a22288e1f8567a54f74293a91a4dddae089f38d6b",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-aud-gfc-2008/card.toml": "7aa00e0c7da9ad04834b9f88f9e9432861e753b9c6fc0f9e9e0a86d671f30fea",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-chf-floor-strain-2015/card.toml": "3fef442714121cd1f94b8aa518e19dc55e591541d5a0dd8eaa4d919d644cb542",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-china-panic-2016/card.toml": "9d42b8e257a5edc19cd00e30e95d27b7a3778203ffa8042a7200c24d13a5609f",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-china-stress-mkt-2015/card.toml": "2c67c69939bbfc600774084fc484cd924daa36daf7cd6af7444367bfc4ab9e46",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-covid-mkt-2020/card.toml": "c61a0b5900fc8e84581078ce37229b344e849ba001e5e104c381cf22103f1933",
+    "t2/experiments/history1008/sources/current/units/t2-F4-covid-nfp-2020/card.toml": "45caa13111ccc32b757422698c5791aa2bd3f7f2acb47c2533c0a14b855ab289",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-covid-rates-2020/card.toml": "4c60ed18bf0a1fcade28236c8152415a4ce500bef3125f9de501a2c32c9a8c54",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-cpi-friday-2022/card.toml": "93212e1e6eb802ed8baa4a6eeb3f421a819d78fabe2c66821270b3e4de0aa97c",
+    "t2/experiments/history1008/sources/current/units/t2-F4-cpi-vintage-2022/card.toml": "556fe77556926a2e0f21622a32bee72c186a5bc6115b654214e29e1696c7e688",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-eur-warnings-2022/card.toml": "eef081033c4fd02fd5c9fce5286d82d05c13037c9f8b3fbb873b1bd6f9f8a3be",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-factor-stress-2008/card.toml": "06255e04f77e359a6cd7c4adbda69a467524edf404b38cd274cf685d5c2b23db",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-funding-stress-10y-2008/card.toml": "9cf5a99bb8e9ade5f9cd134f0e3b82524c1fbcc954e39836902acedf062cf7ca",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-funding-stress-2y-2008/card.toml": "5d24fa5d38ee3ceeac9db8c6de0d6dd451a7805a260ec9937269e695630154f1",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-gbp-brexit-2016/card.toml": "d63c1e31c08dde51d40c7ce168edc6e631659432220f6e17d23d2211bc4b25c4",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-gbp-conference-2016/card.toml": "ec78a20995a88eb0e1b0265f57bcf0fc8277f28e44d52137a52b0bd3ec697e61",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-hike-cycle-2021Q4b/card.toml": "aeb19ca7c859e8fe81e4192f944ea71340f25c9ebc3acad0aea00810006b6c27",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-hml-covid-2020/card.toml": "f3a336f40e900e90c926fe7fd35086388506087c605f6482a0758cfe4cbb9cd2",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-jpy-carry-2007/card.toml": "02d0a564ce37a602d97739e878ff6b354ab9b487e017f695b4eb34aca31cd2bc",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-jpy-crowding-2024/card.toml": "94493378e2ac9a51411e875eed56ba1a94d1f3ba6b41fa56b80733b712073baa",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-mkt-selloff-2011/card.toml": "bcef9eb10bea279833ccc3f35029e9693c910af887b60bfe53797d91d6649f5f",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-momentum-reversal-2009/card.toml": "8950ba62a0742a04f34b28bc3ecc4bf05f34b4947c776c2d78bea099e400fd3c",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-nok-covid-2020/card.toml": "e679a4f579c9cf64b3d8f5dd9d5f807f7d7a481da77e6e65924ab666de76e8d3",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-powell-december-2018/card.toml": "14f4113c40b7088e1be2852ead8e8e0c63ce80394284505cc653f65933ad6c1a",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-qe1-expansion-2009/card.toml": "6a86a523df7fbb0b9cceabb6be9def61ad93d93fea788ef6d42816ce44d558ef",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-quant-crowding-2007/card.toml": "28e489479657ce77581498a6a95c0f50b32e5832b59943dbfd8c1d3d6bfbe1d1",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-short-vol-2018/card.toml": "8f42f8d26a6dbc51750a53e985271ab2b9e62e2bedc8b385df24ac5762c67006",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-svb-whiplash-2023/card.toml": "5abab81b19d60862fd37d69467634571120ec2a5c475d8996d60cbd6b8c812c1",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-taper-warning-2013/card.toml": "34313f06b030d618925996e4eb862f4be29ea5bc393c205e4c46714fee3bd584",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-ust-downgrade-watch-2011/card.toml": "6eea00917fb72464f0f542a25d6d418027c8b91be3ac66e9c652e44112d0419f",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-ust10y-supply-2023/card.toml": "b12ab37f828485f64d7a31cd2700549d82015c81e703105e32fe0d88e4d391e5",
+    "Agenthon-2026/02_track2_forecasting/units/t2-F4-vaccine-timeline-2020/card.toml": "047cc8d532abc6a699f367ea9b902f8c17a30a2bc92d8b90cb774a342cb2f4f2",
+    "t2/research1008v8/results/validation/scores.csv": "9e5f678ed6e3cc709e395cc3d4e6cc8dd477ddfe8838d309a33d9214641d5a58",
+    "t2/research1008v8/results/validation/summary.json": "e0305a51ec45a1b44c99d603aebc8520e8523797de2553b919f71cb9c37dd04f",
+    "t2/research1008v8/results/validation/failures.json": "74ac1c1f1adaa76e1e185148b3dc2774df8389b0868515f506093ed249940131",
+    "t2/research1008v8/results/validation/case_ledger.json": "9230d480278566c1d244c4412c542af1a2466139ffbe31d403ec3a5ba34c14d3",
+    "t2/research1008v8/results/validation/case_ledger.jsonl": "509b67269d3524114b99c593b75efe2bcb053b0db2dc4c0bf5490269d3287325",
+    "t2/research1008v8/results/validation/score_rows.jsonl": "bdabc655b38cc5f5b0a0d823f926b4d4b01e282216bf652ebd6b819bf22efe20",
+    "t2/research1008v8/results/validation/candidate_evidence.jsonl": "7ef19cafdf01a0349c09990c678834b0565f80edc831c3477aca992d927c107f"
+  },
+  "audit_sha256": "c9f5c1b250396bf30a299ef6f3b64e20020acc62578447cfb0b75224a22cad7b"
+}

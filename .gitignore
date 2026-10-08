@@ -1,0 +1,15 @@
+.DS_Store
+._*
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+outputs/
+panels/
+data/
+*.parquet
+*.zip
+*.tar
+*.whl
+image.oci/

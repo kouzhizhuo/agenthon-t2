@@ -1,0 +1,29 @@
+{
+  "declared_before_controls_and_empirical_scores": true,
+  "files": {
+    "DEVELOPMENT_CASES.json": "2d254f6dca27f4b8a3a92694b5f2356629970a9a0e88f5a5332960b309055b33",
+    "PROTOCOL.json": "b425773318d6381d067320a5f59a5df728fa21d79dda48b0112bba2db807de75",
+    "analyze.py": "5f84031fc17172bd53bbd179aa5b7bf39eaf58ddb6aba31e563c01406f2608fd",
+    "baseline/forecast.py": "abb2913e67cec7a924a0017723d5df4dab60662b23e8de7c8751d67666a23540",
+    "baseline/horizon_contract.py": "e82af15975f89bb3f49331bafd63e701a4da6951b9a962936532ca9ac282642c",
+    "baseline/return_contract.py": "aafec76115fc18e57bb11f7b7795ffde42c9b6e38702620e145ccad0a2b020f0",
+    "candidate/core.py": "abb2913e67cec7a924a0017723d5df4dab60662b23e8de7c8751d67666a23540",
+    "candidate/documented_m0.py": "c7a5429fbfe1815e33d601b6f8dabfd09e381a78ab1e401c73c2f4e4f7e3d580",
+    "candidate/forecast.py": "9dff2153a2f640305e07fe42f994de56347eaa39656b92d56673c2b17cf7a081",
+    "candidate/horizon_contract.py": "e82af15975f89bb3f49331bafd63e701a4da6951b9a962936532ca9ac282642c",
+    "candidate/return_contract.py": "aafec76115fc18e57bb11f7b7795ffde42c9b6e38702620e145ccad0a2b020f0",
+    "conftest.py": "2a79a446c0d057d6d7a4d6c74d9427e0be2393b94affd1cad1115c5c09e4dd71",
+    "evaluate.py": "1ef4708c14f8c3c4a3172adc11581614c70df702d09a896d8007dba8637d4a54",
+    "freeze.py": "eb4fef2f71b088e555fb7b181ae7f46f9cf89730cd80d8d1982ec1105adc26f3",
+    "incumbent_manifest.json": "a97c3ef1ce4b6070386298b7bac903d93f527f34fd85b301466fdf9baf4b8152",
+    "independent_t4/test_common_location_independent.py": "b0668b835ba53a2d674a9752a4a0cab236c64ffc99a4380692b7676b43deb4cf",
+    "run_controls.py": "5571af6d05d34f8385ab38c11a7beda00fa04e452b1cbf5f6466a1637976961e",
+    "run_selected.py": "8dde434139dfaa59840a785a98a063c37fc5f811f22f04bba6f275f73d240fcc",
+    "selection.json": "b6d1d302f4ce647cd7a0db8091d94c254243b1b63431e0437772daec5c541fb9",
+    "synthetic.py": "ce382e585aab5b21457724ff1d0f8633f36f358a493b8b96cfcf9eb215356c58",
+    "tests/test_scalar.py": "752660624b7d336ddd8fde93d85684f4ccf2d142ba2806a535399a33cf30ac1b",
+    "verify_candidate.py": "8f6ae1038ca0afb9ae1feebc04402e417d910225cac3a835c2f076f5cbf800af"
+  },
+  "scope": "One fixedcommonratecandidate; syntheticfirst then exactconsumeddevonly, noreserve/upload",
+  "scorer_sha256": "cbb541ef25665b401b1891e67d0bb300aef0014919e900a500e6f9128546c031"
+}

@@ -1,0 +1,48 @@
+{
+  "decision": "REJECT_FOR_PROMOTION_KEEP_EXACT_V2",
+  "candidate": "guarded_common_rate_location",
+  "executive_summary": "Consumedvalidationgain.6213percent<fixed2percentusefulness; descriptiveintervalincludesdeterioration; historicalgatecost12.78xall-domainv2withfouradmittedoriginharms. NoCLI/image/uploadexpansion.",
+  "validation_normalized_ratio": 0.9937871056282159,
+  "validation_descriptive_series_group_ci95": [
+    0.9824548963039441,
+    1.0012006206159063
+  ],
+  "train_normalized_ratio": 0.9942384334058191,
+  "train_unclipped_ratio": 0.9987522867318371,
+  "guard_failures": [
+    "Validation gain0.6213percent below2percent usefulness"
+  ],
+  "raw_variogram_invariant_preserved": true,
+  "forecast_metric_errors": 0,
+  "fixed_consumed_development_origins": 346,
+  "development_forecast_rows": 2076,
+  "controls": {
+    "owner": 34,
+    "independent": 19
+  },
+  "synthetic_paths": 48,
+  "synthetic_rows": 288,
+  "synthetic_stop_passed": true,
+  "validation_admitted_origins": 23,
+  "validation_harmful_admitted_origins": 4,
+  "validation_candidate_mean_seconds": 0.0758449736588065,
+  "validation_candidate_max_seconds": 0.3852101670345291,
+  "validation_model_cost_vs_v2": 12.777702512777081,
+  "family_normalized_ratios": {
+    "T2-F1": 0.9894788301753107,
+    "T2-F2": 0.9952082001258306,
+    "T2-F3": 0.9951417886621581,
+    "T2-F4": 0.9983374608949688
+  },
+  "failed_first_synthetic_pair_preserved_repeated_after_boolonlyfix": true,
+  "freeze_sha256": "4e77ef07a4865cc971cc9e38361be5a70b94f7bafd6d24081f993d2677895ba6",
+  "candidate_sha256": "9dff2153a2f640305e07fe42f994de56347eaa39656b92d56673c2b17cf7a081",
+  "incumbent_image_digest": "sha256:a74cdd6d29b174144fd3e8a0a9aa3492d9d1228e4301d6ad74a835648e323092",
+  "new_reserve_runs": 0,
+  "cli_expansion_runs": 0,
+  "image_or_official_upload": false,
+  "independent_saved_development_audits": [
+    "independent_saved_development/SAVED_DEVELOPMENT_REVIEW_T4.json"
+  ],
+  "limits": "No signedofficialrefscales/rank, allcontestdevelopmentandpriorreservesconsumed; groupedbootstrapdescriptive. Commonrawvariogram algebra is valuable but not marginal/tail robustness."
+}

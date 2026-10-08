@@ -1,0 +1,57 @@
+{
+  "decision": "REJECT_FOR_OFFICIAL_SUBMISSION_KEEP_EXACT_V2",
+  "candidate": "rates_zero_center",
+  "executive_summary": "Reserved normalized gain 0.21%, descriptive CI crosses1, F2\u2013F4 regress and F3 raw joint worsens5.12%; fixed hypothesis fails promotion.",
+  "candidate_hashes": {
+    "core.py": "abb2913e67cec7a924a0017723d5df4dab60662b23e8de7c8751d67666a23540",
+    "horizon_contract.py": "e82af15975f89bb3f49331bafd63e701a4da6951b9a962936532ca9ac282642c",
+    "return_contract.py": "aafec76115fc18e57bb11f7b7795ffde42c9b6e38702620e145ccad0a2b020f0",
+    "documented_m0.py": "c7a5429fbfe1815e33d601b6f8dabfd09e381a78ab1e401c73c2f4e4f7e3d580",
+    "forecast.py": "2cf7ab40efc075fe199b3f5772f109a7a2f730ea75f88a40cc13be5d52e84e64"
+  },
+  "incumbent_image_digest": "sha256:a74cdd6d29b174144fd3e8a0a9aa3492d9d1228e4301d6ad74a835648e323092",
+  "normalized_ratio": 0.9978782650478506,
+  "descriptive_series_group_ci95": [
+    0.9835732385089424,
+    1.0101113154922468
+  ],
+  "normalized_family_ratios": {
+    "T2-F1": 0.9621736663422417,
+    "T2-F2": 1.0125747221880845,
+    "T2-F3": 1.0067339092535041,
+    "T2-F4": 1.0019706368940067
+  },
+  "raw_component_ratios": {
+    "marginal": 0.9849788540474829,
+    "joint": 1.012552329504007,
+    "tail": 1.0,
+    "composite": 0.9966291670415036
+  },
+  "guard_failures": [
+    "reserved gain below2%",
+    "descriptive interval upper >=1",
+    "F3 rawjoint1.051189 >1.05"
+  ],
+  "forecast_metric_failures": 0,
+  "origin_selection_exclusions": {
+    "train": 9,
+    "validation": 26,
+    "heldout": 5
+  },
+  "owner_controls": 10,
+  "independent_controls": 7,
+  "independent_saved_arithmetic_receipt": "independent_t4/saved_score_receipt.json",
+  "current_cli_units": 104,
+  "current_cli_admissible": 104,
+  "official_accuracy_values_available": 0,
+  "native_mac_max_seconds": 0.5538452500477433,
+  "native_mac_max_rss_mib": 119.921875,
+  "reserved_cases": 198,
+  "reserved_units": 99,
+  "exact_origin_reuse": 0,
+  "overlapping_prior_intervals": 198,
+  "shared_panel_exposure": true,
+  "publication_or_submission_by_subtask": false,
+  "next_hypothesis": "NEXT_HYPOTHESIS.md; proposal only, no retune or new reserve run",
+  "independent_complementary_decomposition": "independent_decomposition_track3_receipt.json"
+}

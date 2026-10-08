@@ -1,0 +1,34 @@
+{
+  "changed_frozen_files": {
+    "candidate/forecast.py": {
+      "before": "d6767c75e4ed4a3df99127f531f9ae53fbd2bb73ea594f78c66183863b161378",
+      "after": "9dff2153a2f640305e07fe42f994de56347eaa39656b92d56673c2b17cf7a081"
+    },
+    "selection.json": {
+      "before": "d00e7ee8a2a2f354a752825fb6f14ef69e95c67ca6e7084fef04f04c29ec4ebc",
+      "after": "b6d1d302f4ce647cd7a0db8091d94c254243b1b63431e0437772daec5c541fb9"
+    },
+    "tests/test_scalar.py": {
+      "before": "78fc20dd9f2cba84c39c4fbadc577fc40731b96c5d9d1b3cf02e6f8b5ec18a4c",
+      "after": "752660624b7d336ddd8fde93d85684f4ccf2d142ba2806a535399a33cf30ac1b"
+    }
+  },
+  "runtime_edit": "One bool conversion in invariance passed; no numerical/formula/threshold change",
+  "controls": {
+    "old": 52,
+    "new": 53
+  },
+  "protocol_and_roster_and_empirical_harness_unchanged": true,
+  "old_freeze_sha256": "a2aa527e0cff35f09ccf1fd5206ca7c9b01d0b48f2a9bf8918a55b594792e48a",
+  "new_freeze_sha256": "4e77ef07a4865cc971cc9e38361be5a70b94f7bafd6d24081f993d2677895ba6",
+  "partial_saved_hashes": {
+    "synthetic_journal/start.jsonl": "f65c8809991b92faf773fb66447687dd8bba9ee2691a970b11e9d6d27ab908cb",
+    "synthetic_journal/truth_paths.jsonl": "ba59791e89e993a10aa34926a1fdc185ceec38cd53ae9ba0c63b1dc81d752983",
+    "synthetic_journal/score_rows.jsonl": "0ddf9ebdead40f0e085242c0a14015e7c9167b569227c87cb8e39841a93a3e0b",
+    "synthetic_journal/gate_records.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "synthetic_journal/failures.jsonl": "28cbe6e11d6fa88dc30f9a037339efd7669ac057b6a9469e26f1f2bf65e2160a",
+    "synthetic_journal/invariance.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "first_paired_outcomes_observed_before_repair": true,
+  "independent_evidence_claim": false
+}
