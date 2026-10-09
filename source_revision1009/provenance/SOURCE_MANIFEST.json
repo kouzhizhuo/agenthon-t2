@@ -1,0 +1,185 @@
+{
+  "executive_summary": "Reviewed task-driven T2 runtime, documentation, aggregate decisions and invented input-only Linux fixtures. No market panel, reference, target, private credential or historical predictions.",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 285,
+      "sha256": "35328d4018be55de080e789a8ace90cde61e1ce91c9230ca5c55ce43fe350ad5"
+    },
+    {
+      "path": "ARTIFACT_PROVENANCE.md",
+      "bytes": 3426,
+      "sha256": "0bff3c265727f3ad297885472b1fc7dd1bbfb2bb5cd75b45a9b1790bcd3f1700"
+    },
+    {
+      "path": "BUILD_REVIEW.md",
+      "bytes": 6946,
+      "sha256": "da490b1eed4fbbc57d6f4ee6a430833d64200ad13408cbaeed075b7b3e632738"
+    },
+    {
+      "path": "CONTRACT_AUDIT.md",
+      "bytes": 19245,
+      "sha256": "990d0e9d6b8194f02c25466b8ff66a00c1f25a42e24d8aa87b286b872de67877"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 669,
+      "sha256": "56c0890cffd1805df414b660d8f58ee192f582e717133e993cba7ebf598c6805"
+    },
+    {
+      "path": "Dockerfile.house",
+      "bytes": 780,
+      "sha256": "f4bafac3ce154a830c1c96e31bc73dda0f355ad1c1859036856d3692ec2445cb"
+    },
+    {
+      "path": "FINAL_REVIEW.md",
+      "bytes": 4748,
+      "sha256": "1bb51074b2984ec8ae90cee0a44939b9e4abcae84210f15bf71bb3ffa9d9e691"
+    },
+    {
+      "path": "HOUSE_METHOD.md",
+      "bytes": 8898,
+      "sha256": "b6230cb9557d38782ad5a9daf655082e555fce660d32f6c9b86cfd41ed14a3eb"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1036,
+      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+    },
+    {
+      "path": "METHOD_AUDIT.md",
+      "bytes": 14262,
+      "sha256": "7388f934f7555eb4341b943e5d2df626fc4e7bd55e4304af5418b621906ed95b"
+    },
+    {
+      "path": "PROTOCOL.md",
+      "bytes": 4665,
+      "sha256": "f1445d66165d0a6b20887245ab4d77c76ddc0cf501aa7c5085f966aac26302f5"
+    },
+    {
+      "path": "QUALITY_DECISION.json",
+      "bytes": 5376,
+      "sha256": "33b70914da98b7501b63e9ae5beb2b635038dce5ce5d7e26b5928bcb74a97a70"
+    },
+    {
+      "path": "QUALITY_DECISION.md",
+      "bytes": 3078,
+      "sha256": "754348e2a23965affc60c9f16fffb5e60cd896fdb7a6810f14e5091ebab702dc"
+    },
+    {
+      "path": "ci/linux_validate.py",
+      "bytes": 12643,
+      "sha256": "ec33d3bd1c1c0ace9b61c8306abaede4403b4402873be6331ee6deb9bb1073b7"
+    },
+    {
+      "path": "ci/make_fixtures.py",
+      "bytes": 6084,
+      "sha256": "b4e07d50f73df167dfc411683c58fa41964e275a4be5f2ecd5ef643cfcb18776"
+    },
+    {
+      "path": "fixtures/FIXTURE_MANIFEST.json",
+      "bytes": 1757,
+      "sha256": "fe88bd5da85acee08960a7c638867cd700ce263c6a6f9ed59db853a61f68f6a3"
+    },
+    {
+      "path": "fixtures/daily_return/card.toml",
+      "bytes": 1288,
+      "sha256": "64f8d634caa8533c1179e74fcc2ee4830b72db157f8574ec8e72b2edcf5424c8"
+    },
+    {
+      "path": "fixtures/daily_return/forecast_spec.json",
+      "bytes": 158,
+      "sha256": "fe5e489e33bda00847d5b96c0bbe9031a246b28cedcd36aa731cef420e787797"
+    },
+    {
+      "path": "fixtures/daily_return/panels/factors_daily.parquet",
+      "bytes": 18800,
+      "sha256": "589ea57b159224bad40ea01933f1bd210ec7a10d0a053e7113bcd41608abda60"
+    },
+    {
+      "path": "fixtures/daily_return/text/context.txt",
+      "bytes": 91,
+      "sha256": "905630988fe7f805be8c04e7d6c64f85640208f8d126a0240d16ad49b8a2072a"
+    },
+    {
+      "path": "fixtures/daily_return/text/corpus_index.json",
+      "bytes": 210,
+      "sha256": "59ef8ee36c89fd672b379df0a3bedb3e5467bd3f2f19497a2c35cfee76726cae"
+    },
+    {
+      "path": "fixtures/monthly_release/card.toml",
+      "bytes": 1288,
+      "sha256": "3416e8907be62634932fd7c81646444613f5ee1bae94958d9434f807d75ee2fa"
+    },
+    {
+      "path": "fixtures/monthly_release/forecast_spec.json",
+      "bytes": 205,
+      "sha256": "aa853f775fef6ac9e0ed88587c518f394601838be9f31df03d0768a98726f7c8"
+    },
+    {
+      "path": "fixtures/monthly_release/panels/macro_monthly.parquet",
+      "bytes": 3104,
+      "sha256": "20a3a82044e90052356ccf80f3b863f23ef350759ea02898036b98cd7fd30f1c"
+    },
+    {
+      "path": "fixtures/monthly_release/text/corpus_index.json",
+      "bytes": 196,
+      "sha256": "4ee31b2f12dfd693e3e944302b67b17d8cb255bfec5ff8f649b63ddadfb48cc6"
+    },
+    {
+      "path": "fixtures/monthly_release/text/release.txt",
+      "bytes": 381,
+      "sha256": "13d920f25033d22e2e35e740e0aed2ac48a988ed2a126cb446559d362c7826b5"
+    },
+    {
+      "path": "source/bootstrap_forecast.py",
+      "bytes": 5641,
+      "sha256": "0454abd1b50d8c12dcff2c767cead993b1793cdedea4c213a092f81fdfaa8602"
+    },
+    {
+      "path": "source/forecast.py",
+      "bytes": 29238,
+      "sha256": "b258aefb05a09a476d0d22dadf7b29635ef7da50fcd4c2594b6356a86f0c4c6c"
+    },
+    {
+      "path": "source/horizon_contract.py",
+      "bytes": 7123,
+      "sha256": "e82af15975f89bb3f49331bafd63e701a4da6951b9a962936532ca9ac282642c"
+    },
+    {
+      "path": "source/house_scenarios.py",
+      "bytes": 21247,
+      "sha256": "e1a8ce6222aa16a3051a06e4e8e66175c720ebf8a1022b7a57907075a1b6ba60"
+    },
+    {
+      "path": "source/release_evidence.py",
+      "bytes": 12509,
+      "sha256": "9353f3b0c6a3faec7f417ca88df544a2fd11c89f328786c8d3c5374d23327541"
+    },
+    {
+      "path": "source/return_contract.py",
+      "bytes": 784,
+      "sha256": "14d9d1bed3c0be413cdfdc36570ac551aefe7d05feec7ed91ad68a1df702b45f"
+    },
+    {
+      "path": "source/test_bootstrap_forecast.py",
+      "bytes": 2863,
+      "sha256": "ef00c8ad72b43a8a1fc2c7435cb8d7062366f736a89a59f5a436a377dca28758"
+    },
+    {
+      "path": "source/test_house_scenarios.py",
+      "bytes": 14055,
+      "sha256": "c2304f4026be609e2da53c5cabeff122f717c4c9a9670bf1d5d667ead0ec439b"
+    },
+    {
+      "path": "source/test_integration.py",
+      "bytes": 2462,
+      "sha256": "8d100ef37e46b54cc8c5574f6ca6b93862b96c78eb5217b2d9a7498973ebedda"
+    },
+    {
+      "path": "source/test_release_evidence.py",
+      "bytes": 8844,
+      "sha256": "d3fd53fa0c4579508b43108d4e4ae2cfa474c93b46eb5641d2f505a03dfd3e59"
+    }
+  ]
+}

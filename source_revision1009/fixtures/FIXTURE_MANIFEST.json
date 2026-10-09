@@ -1,0 +1,55 @@
+{
+  "executive_summary": "Input-only invented fixture hashes.",
+  "files": [
+    {
+      "path": "daily_return/card.toml",
+      "bytes": 1288,
+      "sha256": "64f8d634caa8533c1179e74fcc2ee4830b72db157f8574ec8e72b2edcf5424c8"
+    },
+    {
+      "path": "daily_return/forecast_spec.json",
+      "bytes": 158,
+      "sha256": "fe5e489e33bda00847d5b96c0bbe9031a246b28cedcd36aa731cef420e787797"
+    },
+    {
+      "path": "daily_return/panels/factors_daily.parquet",
+      "bytes": 18800,
+      "sha256": "589ea57b159224bad40ea01933f1bd210ec7a10d0a053e7113bcd41608abda60"
+    },
+    {
+      "path": "daily_return/text/context.txt",
+      "bytes": 91,
+      "sha256": "905630988fe7f805be8c04e7d6c64f85640208f8d126a0240d16ad49b8a2072a"
+    },
+    {
+      "path": "daily_return/text/corpus_index.json",
+      "bytes": 210,
+      "sha256": "59ef8ee36c89fd672b379df0a3bedb3e5467bd3f2f19497a2c35cfee76726cae"
+    },
+    {
+      "path": "monthly_release/card.toml",
+      "bytes": 1288,
+      "sha256": "3416e8907be62634932fd7c81646444613f5ee1bae94958d9434f807d75ee2fa"
+    },
+    {
+      "path": "monthly_release/forecast_spec.json",
+      "bytes": 205,
+      "sha256": "aa853f775fef6ac9e0ed88587c518f394601838be9f31df03d0768a98726f7c8"
+    },
+    {
+      "path": "monthly_release/panels/macro_monthly.parquet",
+      "bytes": 3104,
+      "sha256": "20a3a82044e90052356ccf80f3b863f23ef350759ea02898036b98cd7fd30f1c"
+    },
+    {
+      "path": "monthly_release/text/corpus_index.json",
+      "bytes": 196,
+      "sha256": "4ee31b2f12dfd693e3e944302b67b17d8cb255bfec5ff8f649b63ddadfb48cc6"
+    },
+    {
+      "path": "monthly_release/text/release.txt",
+      "bytes": 381,
+      "sha256": "13d920f25033d22e2e35e740e0aed2ac48a988ed2a126cb446559d362c7826b5"
+    }
+  ]
+}

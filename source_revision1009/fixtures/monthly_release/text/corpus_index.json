@@ -1,0 +1,11 @@
+{
+  "documents": [
+    {
+      "doc_id": "invented-cpi-release",
+      "timestamp": "2030-05-12",
+      "source": "BLS",
+      "doc_type": "macro_release",
+      "file": "release.txt"
+    }
+  ]
+}

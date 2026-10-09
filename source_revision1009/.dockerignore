@@ -1,0 +1,11 @@
+# ## Executive summary (read this first)
+# Only reviewed runtime files enter the image build context.
+*
+!Dockerfile
+!source/
+!source/forecast.py
+!source/horizon_contract.py
+!source/return_contract.py
+!source/release_evidence.py
+!source/bootstrap_forecast.py
+!source/house_scenarios.py

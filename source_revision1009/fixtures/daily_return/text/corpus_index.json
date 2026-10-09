@@ -1,0 +1,11 @@
+{
+  "documents": [
+    {
+      "doc_id": "invented-context",
+      "timestamp": "2030-04-19",
+      "source": "invented synthetic source",
+      "doc_type": "cb_speech",
+      "file": "context.txt"
+    }
+  ]
+}
