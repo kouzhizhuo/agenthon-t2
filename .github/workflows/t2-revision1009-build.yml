@@ -1,7 +1,7 @@
 # ## Executive summary (read this first)
 # Import one hash-pinned reviewed source release, validate two Linux images, then publish digests.
 # The preserved V2 runtime tree is not modified. No forecast accuracy or real House call is claimed.
-name: Reviewed T2 revision 1009 build and publish
+name: Reviewed T2 revision 1009 GHCR publish diagnostics
 
 on:
   workflow_dispatch:
@@ -16,11 +16,12 @@ permissions:
   packages: write
 
 concurrency:
-  group: reviewed-t2-revision1009b
+  group: reviewed-t2-revision1009c
   cancel-in-progress: false
 
 env:
   SOURCE_URL: https://github.com/kouzhizhuo/agenthon-t2/releases/download/source-revision-20261009/source-revision-20261009b.tar.gz
+  IMAGE_REPOSITORY: kouzhizhuo/agenthon-t2-revision1009
   TOOLKIT_TAG: v2.6.0
   TRACK_REF: 30c8019d997f930eab9ba569d089d12298d86d8c
   BASE_IMAGE: ghcr.io/kouzhizhuo/agenthon-t2@sha256:a74cdd6d29b174144fd3e8a0a9aa3492d9d1228e4301d6ad74a835648e323092
@@ -116,40 +117,98 @@ jobs:
         run: |
           set -euo pipefail
           docker pull --platform linux/amd64 "$BASE_IMAGE"
-          docker build --platform linux/amd64 --network=none --pull=false -f source_revision1009b/Dockerfile -t t2-revision1009:release source_revision1009b
-          docker build --platform linux/amd64 --network=none --pull=false -f source_revision1009b/Dockerfile.house -t t2-revision1009:house source_revision1009b
+          SOURCE_COMMIT="$(git rev-parse HEAD)"
+          docker build --platform linux/amd64 --network=none --pull=false --label org.opencontainers.image.source=https://github.com/kouzhizhuo/agenthon-t2 --label "org.opencontainers.image.revision=$SOURCE_COMMIT" -f source_revision1009b/Dockerfile -t t2-revision1009:release source_revision1009b
+          docker build --platform linux/amd64 --network=none --pull=false --label org.opencontainers.image.source=https://github.com/kouzhizhuo/agenthon-t2 --label "org.opencontainers.image.revision=$SOURCE_COMMIT" -f source_revision1009b/Dockerfile.house -t t2-revision1009:house source_revision1009b
       - name: Validate exact Linux images before publication
         run: |
           set -euo pipefail
           python source_revision1009b/ci/linux_validate.py --image t2-revision1009:release --variant release --source source_revision1009b/source --fixtures source_revision1009b/fixtures --output "$RUNNER_TEMP/t2-linux-evidence/release-local"
           python source_revision1009b/ci/linux_validate.py --image t2-revision1009:house --variant house --source source_revision1009b/source --fixtures source_revision1009b/fixtures --output "$RUNNER_TEMP/t2-linux-evidence/house-local"
-      - name: Publish validated images and save immutable digests
+      - name: Verify image association with this repository after inherited-label override
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,pathlib,subprocess
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'t2-linux-evidence'
+          commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          rows=[]
+          for variant in ('release','house'):
+              inspection=json.loads(subprocess.check_output(['docker','image','inspect',f't2-revision1009:{variant}'],text=True))[0]
+              labels=inspection['Config'].get('Labels',{})
+              if labels.get('org.opencontainers.image.source')!='https://github.com/kouzhizhuo/agenthon-t2' or labels.get('org.opencontainers.image.revision')!=commit:
+                  raise ValueError('image repository association/revision label mismatch')
+              rows.append({'variant':variant,'image_id':inspection['Id'],'source':labels['org.opencontainers.image.source'],'revision':labels['org.opencontainers.image.revision']})
+          (root/'IMAGE_ASSOCIATION.json').write_text(json.dumps({'executive_summary':'Both newly validated image configs explicitly identify this publishing repository; inherited base labels cannot select another source.','images':rows},indent=2)+'\n')
+          PY
+      - name: Publish validated images with explicit GHCR failure evidence
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_ACTOR: ${{ github.actor }}
         run: |
           set -euo pipefail
+          trap 'docker logout ghcr.io >/dev/null 2>&1 || true' EXIT
           printf '%s' "$GH_TOKEN" | docker login ghcr.io --username "$GH_ACTOR" --password-stdin
           python - <<'PY'
-          import json,os,pathlib,re,subprocess
-          rows=[]
+          import json,os,pathlib,re,subprocess,sys
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'t2-linux-evidence'
+          repository=os.environ['IMAGE_REPOSITORY']
+          if repository != 'kouzhizhuo/agenthon-t2-revision1009':
+              raise ValueError('unreviewed GHCR package repository')
+          prefix='ghcr.io/'+repository
           commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          state={'executive_summary':'Real push status and sanitized registry diagnostics; no forecast quality claim.',
+                 'repository':repository,'source_commit':commit,'status':'running','attempts':[],'images':[]}
+          def save():
+              (root/'PUSH_STATUS.json').write_text(json.dumps(state,indent=2)+'\n')
+          def safe(value):
+              value=value.decode(errors='replace') if isinstance(value,bytes) else (value or '')
+              token=os.environ.get('GH_TOKEN','')
+              if token:value=value.replace(token,'[redacted]')
+              value=re.sub(r'(?i)(authorization\s*[:=]\s*(?:bearer|basic)\s+)\S+',r'\1[redacted]',value)
+              value=re.sub(r'(https?://)[^\s/@]+:[^\s/@]+@',r'\1[redacted]@',value)
+              return value
+          save()
           for variant in ('release','house'):
-              tag=f'ghcr.io/kouzhizhuo/agenthon-t2:revision1009b-{variant}-{commit[:12]}'
-              subprocess.run(['docker','tag',f't2-revision1009:{variant}',tag],check=True)
-              push=subprocess.run(['docker','push',tag],capture_output=True,text=True)
-              root=pathlib.Path(os.environ['RUNNER_TEMP'])/'t2-linux-evidence'
-              (root/f'{variant}-push.stdout.log').write_text(push.stdout)
-              (root/f'{variant}-push.stderr.log').write_text(push.stderr)
-              if push.returncode:raise RuntimeError('GHCR push failed')
-              inspection=json.loads(subprocess.check_output(['docker','image','inspect',tag],text=True))[0]
-              digests=[x for x in inspection.get('RepoDigests',[]) if x.startswith('ghcr.io/kouzhizhuo/agenthon-t2@sha256:')]
-              if len(digests)!=1 or not re.fullmatch(r'ghcr.io/kouzhizhuo/agenthon-t2@sha256:[0-9a-f]{64}',digests[0]):
-                  raise ValueError('one immutable published digest not established')
-              rows.append({'variant':variant,'tag':tag,'image':digests[0],'image_id':inspection['Id']})
-          (root/'PUBLISHED_IMAGES.json').write_text(json.dumps({'executive_summary':'Validated numeric and House-default image digests; quality unmeasured.','source_commit':commit,'images':rows},indent=2)+'\n')
+              tag=f'{prefix}:revision1009c-{variant}-{commit[:12]}'
+              record={'variant':variant,'tag':tag,'status':'attempted'}
+              state['attempts'].append(record);save()
+              try:
+                  subprocess.run(['docker','tag',f't2-revision1009:{variant}',tag],check=True)
+                  push=subprocess.run(['docker','push',tag],capture_output=True,text=True,timeout=300)
+                  stdout,stderr=safe(push.stdout),safe(push.stderr)
+                  (root/f'{variant}-push.stdout.log').write_text(stdout)
+                  (root/f'{variant}-push.stderr.log').write_text(stderr)
+                  record.update(returncode=push.returncode,stdout_log=f'{variant}-push.stdout.log',stderr_log=f'{variant}-push.stderr.log')
+                  if push.returncode:
+                      record.update(status='failed',diagnostic_tail=(stderr or stdout)[-8000:])
+                      state['status']='failed';save()
+                      print(f'GHCR push refused for {tag} (exit {push.returncode}); sanitized diagnostic tail:',file=sys.stderr)
+                      print(record['diagnostic_tail'],file=sys.stderr)
+                      raise RuntimeError('GHCR push failed; see PUSH_STATUS.json and sanitized push logs')
+                  inspection=json.loads(subprocess.check_output(['docker','image','inspect',tag],text=True))[0]
+                  digests=[x for x in inspection.get('RepoDigests',[]) if x.startswith(prefix+'@sha256:')]
+                  if len(digests)!=1 or not re.fullmatch(re.escape(prefix)+r'@sha256:[0-9a-f]{64}',digests[0]):
+                      raise ValueError('one immutable published digest not established')
+                  image={'variant':variant,'tag':tag,'image':digests[0],'image_id':inspection['Id']}
+                  state['images'].append(image);record.update(status='pushed',image=digests[0]);save()
+                  print('Published immutable image:',digests[0])
+              except subprocess.TimeoutExpired as error:
+                  (root/f'{variant}-push.stdout.log').write_text(safe(error.stdout))
+                  (root/f'{variant}-push.stderr.log').write_text(safe(error.stderr))
+                  record.update(status='failed',reason='push exceeded 300 second limit')
+                  state['status']='failed';save()
+                  print('GHCR push timed out; sanitized logs preserved.',file=sys.stderr)
+                  raise RuntimeError('GHCR push timeout') from None
+              except Exception as error:
+                  if record['status']!='failed':
+                      record.update(status='failed',reason=type(error).__name__)
+                      state['status']='failed';save()
+                  raise
+          state['status']='both_pushed_anonymous_pull_not_yet_verified';save()
+          (root/'PUBLISHED_IMAGES.json').write_text(json.dumps({'executive_summary':'Both tested images pushed; anonymous pulls and published-digest gates still required.',
+              'source_commit':commit,'image_repository':repository,'images':state['images']},indent=2)+'\n')
           PY
-          docker logout ghcr.io
       - name: Prove anonymous pull and rerun immutable digests
         run: |
           set -euo pipefail
@@ -168,6 +227,10 @@ jobs:
                   (root/f"{row['variant']}-anonymous-pull.stderr.log").write_text(pull.stderr)
                   if pull.returncode:raise RuntimeError('anonymous pull failed: package must be public')
                   subprocess.run(['python','source_revision1009b/ci/linux_validate.py','--image',row['image'],'--variant',row['variant'],'--source','source_revision1009b/source','--fixtures','source_revision1009b/fixtures','--output',str(root/f"{row['variant']}-published")],check=True,env=env)
+          state=json.loads((root/'PUSH_STATUS.json').read_text())
+          state['status']='both_published_digests_verified_anonymously'
+          state['published_digest_checks_passed']=True
+          (root/'PUSH_STATUS.json').write_text(json.dumps(state,indent=2)+'\n')
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:
               summary.write('Both exact Linux/amd64 digests passed official gates and anonymous pulls.\n\n')
               for row in report['images']:summary.write(f"- {row['variant']}: `{row['image']}`\n")
@@ -177,7 +240,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: t2-revision1009b-linux-${{ github.run_id }}
+          name: t2-revision1009c-linux-${{ github.run_id }}
           path: ${{ runner.temp }}/t2-linux-evidence
           if-no-files-found: error
           retention-days: 30
