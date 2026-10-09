@@ -1,0 +1,183 @@
+# ## Executive summary (read this first)
+# Import one hash-pinned reviewed source release, validate two Linux images, then publish digests.
+# The preserved V2 runtime tree is not modified. No forecast accuracy or real House call is claimed.
+name: Reviewed T2 revision 1009 build and publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha256:
+        description: SHA256 of reviewed source-revision-20261009 tar.gz release asset
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: reviewed-t2-revision1009
+  cancel-in-progress: false
+
+env:
+  SOURCE_URL: https://github.com/kouzhizhuo/agenthon-t2/releases/download/source-revision-20261009/source-revision-20261009.tar.gz
+  TOOLKIT_TAG: v2.6.0
+  TRACK_REF: 30c8019d997f930eab9ba569d089d12298d86d8c
+  BASE_IMAGE: ghcr.io/kouzhizhuo/agenthon-t2@sha256:a74cdd6d29b174144fd3e8a0a9aa3492d9d1228e4301d6ad74a835648e323092
+
+jobs:
+  build-validate-publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Check out only the personal public repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683d
+        with:
+          ref: main
+          persist-credentials: true
+          lfs: false
+      - name: Set up Python required by current official gates
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b
+        with:
+          python-version: '3.13'
+      - name: Create evidence directory before network operations
+        run: mkdir -p "$RUNNER_TEMP/t2-linux-evidence"
+      - name: Verify reviewed release and commit its isolated source tree
+        env:
+          SOURCE_SHA256: ${{ inputs.source_sha256 }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess,tarfile,tempfile,urllib.request
+          if os.environ['GITHUB_REPOSITORY']!='kouzhizhuo/agenthon-t2':
+              raise ValueError('wrong personal repository')
+          sha=os.environ['SOURCE_SHA256']
+          if not re.fullmatch('[0-9a-f]{64}',sha):raise ValueError('invalid archive hash')
+          with urllib.request.urlopen(os.environ['SOURCE_URL'],timeout=120) as response:
+              raw=response.read(20*1024*1024+1)
+          if len(raw)>20*1024*1024 or hashlib.sha256(raw).hexdigest()!=sha:
+              raise ValueError('reviewed archive hash/size mismatch')
+          with tempfile.TemporaryDirectory() as tmp:
+              archive=pathlib.Path(tmp)/'source.tar.gz';archive.write_bytes(raw)
+              with tarfile.open(archive,'r:gz') as tar:
+                  members=tar.getmembers();content={}
+                  for member in members:
+                      p=pathlib.PurePosixPath(member.name)
+                      if member.isdir():continue
+                      if not member.isfile() or p.is_absolute() or '..' in p.parts or not p.parts or p.parts[0]!='source_revision1009' or any(x.startswith('._') or x=='.git' for x in p.parts):
+                          raise ValueError('unsafe/unrelated archive path')
+                      if member.name in content or member.size>8*1024*1024:raise ValueError('duplicate/oversized archive member')
+                      content[member.name]=tar.extractfile(member).read()
+              manifest_name='source_revision1009/provenance/SOURCE_MANIFEST.json'
+              manifest=json.loads(content[manifest_name])
+              expected={x['path']:x for x in manifest['files']}
+              if len(expected)!=len(manifest['files']):raise ValueError('duplicate manifest path')
+              actual={n.removeprefix('source_revision1009/'):v for n,v in content.items() if n!=manifest_name}
+              if set(expected)!=set(actual):raise ValueError('archive/manifest roster mismatch')
+              for name,value in actual.items():
+                  entry=expected[name]
+                  if len(value)!=entry['bytes'] or hashlib.sha256(value).hexdigest()!=entry['sha256']:
+                      raise ValueError('source hash mismatch:'+name)
+              if any(any(part in {'reference','realized','solution','answer_key','golden_submission','__pycache__'} or part.startswith('._') or part.endswith('.pyc') for part in pathlib.PurePosixPath(name).parts) for name in actual):
+                  raise ValueError('reference/cache material cannot enter reviewed source archive')
+              required={'Dockerfile','Dockerfile.house','ci/linux_validate.py','source/forecast.py','source/horizon_contract.py','source/return_contract.py','source/release_evidence.py','source/bootstrap_forecast.py','source/house_scenarios.py'}
+              if not required<=set(actual):raise ValueError('runtime or verification file missing')
+              for name,value in content.items():
+                  path=pathlib.Path(name)
+                  if path.is_symlink() or any(x.is_symlink() for x in path.parents):raise ValueError('symlink destination')
+                  if path.exists() and path.read_bytes()!=value:raise ValueError('refuse different previously imported revision:'+name)
+                  path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(value);path.chmod(0o644)
+          subprocess.run(['git','add','--','source_revision1009'],check=True)
+          state=subprocess.run(['git','diff','--cached','--quiet']).returncode
+          if state==1:
+              subprocess.run(['git','-c','user.name=github-actions[bot]','-c','user.email=41898282+github-actions[bot]@users.noreply.github.com','commit','-m','Import reviewed T2 revision 1009 source and synthetic Linux checks'],check=True)
+              subprocess.run(['git','push','origin','HEAD:main'],check=True)
+          elif state!=0:raise RuntimeError('git diff failed')
+          evidence=pathlib.Path(os.environ['RUNNER_TEMP'])/'t2-linux-evidence';evidence.mkdir(exist_ok=True)
+          (evidence/'SOURCE_IMPORT.json').write_text(json.dumps({'executive_summary':'Exact reviewed archive imported into isolated source directory.','source_sha256':sha,'source_url':os.environ['SOURCE_URL'],'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'file_count':len(content)},indent=2)+'\n')
+          PY
+      - name: Install exact official toolkit and current T2 gates on host only
+        run: |
+          set -euo pipefail
+          python -m pip install 'qfbench2-common @ git+https://github.com/Agenthon-2026/Agenthon2026-public.git@v2.6.0#subdirectory=common'
+          python -m pip install 'qfbench2-track-forecasting @ git+https://github.com/Agenthon-2026/track2-forecasting-public.git@30c8019d997f930eab9ba569d089d12298d86d8c'
+          python -m pip install pytest==8.4.2
+          python - <<'PY'
+          import importlib.metadata
+          from qfbench2_common.contracts import CONTRACT_SET
+          assert importlib.metadata.version('qfbench2-common')=='2.6.0'
+          assert importlib.metadata.version('qfbench2-track-forecasting')=='3.1.0'
+          print('toolkit 2.6.0, T2 3.1.0, contract',CONTRACT_SET)
+          PY
+          python -m pip freeze > "$RUNNER_TEMP/t2-linux-evidence/HOST_DEPENDENCIES.txt"
+      - name: Run reviewed behavioral tests on Linux
+        run: python -m pytest source_revision1009/source/test_integration.py source_revision1009/source/test_release_evidence.py source_revision1009/source/test_bootstrap_forecast.py source_revision1009/source/test_house_scenarios.py -q
+      - name: Build numeric and House-default images without build network
+        run: |
+          set -euo pipefail
+          docker pull --platform linux/amd64 "$BASE_IMAGE"
+          docker build --platform linux/amd64 --network=none --pull=false -f source_revision1009/Dockerfile -t t2-revision1009:release source_revision1009
+          docker build --platform linux/amd64 --network=none --pull=false -f source_revision1009/Dockerfile.house -t t2-revision1009:house source_revision1009
+      - name: Validate exact Linux images before publication
+        run: |
+          set -euo pipefail
+          python source_revision1009/ci/linux_validate.py --image t2-revision1009:release --variant release --source source_revision1009/source --fixtures source_revision1009/fixtures --output "$RUNNER_TEMP/t2-linux-evidence/release-local"
+          python source_revision1009/ci/linux_validate.py --image t2-revision1009:house --variant house --source source_revision1009/source --fixtures source_revision1009/fixtures --output "$RUNNER_TEMP/t2-linux-evidence/house-local"
+      - name: Publish validated images and save immutable digests
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_ACTOR: ${{ github.actor }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$GH_TOKEN" | docker login ghcr.io --username "$GH_ACTOR" --password-stdin
+          python - <<'PY'
+          import json,os,pathlib,re,subprocess
+          rows=[]
+          commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          for variant in ('release','house'):
+              tag=f'ghcr.io/kouzhizhuo/agenthon-t2:revision1009-{variant}-{commit[:12]}'
+              subprocess.run(['docker','tag',f't2-revision1009:{variant}',tag],check=True)
+              push=subprocess.run(['docker','push',tag],capture_output=True,text=True)
+              root=pathlib.Path(os.environ['RUNNER_TEMP'])/'t2-linux-evidence'
+              (root/f'{variant}-push.stdout.log').write_text(push.stdout)
+              (root/f'{variant}-push.stderr.log').write_text(push.stderr)
+              if push.returncode:raise RuntimeError('GHCR push failed')
+              inspection=json.loads(subprocess.check_output(['docker','image','inspect',tag],text=True))[0]
+              digests=[x for x in inspection.get('RepoDigests',[]) if x.startswith('ghcr.io/kouzhizhuo/agenthon-t2@sha256:')]
+              if len(digests)!=1 or not re.fullmatch(r'ghcr.io/kouzhizhuo/agenthon-t2@sha256:[0-9a-f]{64}',digests[0]):
+                  raise ValueError('one immutable published digest not established')
+              rows.append({'variant':variant,'tag':tag,'image':digests[0],'image_id':inspection['Id']})
+          (root/'PUBLISHED_IMAGES.json').write_text(json.dumps({'executive_summary':'Validated numeric and House-default image digests; quality unmeasured.','source_commit':commit,'images':rows},indent=2)+'\n')
+          PY
+          docker logout ghcr.io
+      - name: Prove anonymous pull and rerun immutable digests
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,os,pathlib,subprocess,tempfile
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'t2-linux-evidence'
+          report=json.loads((root/'PUBLISHED_IMAGES.json').read_text())
+          with tempfile.TemporaryDirectory() as config:
+              pathlib.Path(config,'config.json').write_text('{}\n')
+              env={**os.environ,'DOCKER_CONFIG':config}
+              for row in report['images']:
+                  subprocess.run(['docker','image','rm',row['tag'],f"t2-revision1009:{row['variant']}"],check=True)
+                  subprocess.run(['docker','image','rm',row['image']],check=False)
+                  pull=subprocess.run(['docker','pull','--platform','linux/amd64',row['image']],capture_output=True,text=True,env=env)
+                  (root/f"{row['variant']}-anonymous-pull.stdout.log").write_text(pull.stdout)
+                  (root/f"{row['variant']}-anonymous-pull.stderr.log").write_text(pull.stderr)
+                  if pull.returncode:raise RuntimeError('anonymous pull failed: package must be public')
+                  subprocess.run(['python','source_revision1009/ci/linux_validate.py','--image',row['image'],'--variant',row['variant'],'--source','source_revision1009/source','--fixtures','source_revision1009/fixtures','--output',str(root/f"{row['variant']}-published")],check=True,env=env)
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as summary:
+              summary.write('Both exact Linux/amd64 digests passed official gates and anonymous pulls.\n\n')
+              for row in report['images']:summary.write(f"- {row['variant']}: `{row['image']}`\n")
+              summary.write('\nNo forecast accuracy or actual House inference was measured.\n')
+          PY
+      - name: Preserve success or failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: t2-revision1009-linux-${{ github.run_id }}
+          path: ${{ runner.temp }}/t2-linux-evidence
+          if-no-files-found: error
+          retention-days: 30
