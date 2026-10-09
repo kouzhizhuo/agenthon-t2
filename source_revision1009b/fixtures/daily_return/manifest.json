@@ -1,0 +1,71 @@
+{
+  "manifest_version": "2.0",
+  "unit_id": "synthetic-daily-return",
+  "generated_by": "qfbench2 manifest build",
+  "files": [
+    {
+      "path": "card.toml",
+      "role": "input",
+      "license": "MIT",
+      "sha256": "64f8d634caa8533c1179e74fcc2ee4830b72db157f8574ec8e72b2edcf5424c8",
+      "bytes": 1288,
+      "split": "public-dev",
+      "redistributable": true,
+      "source": "author-created deterministic synthetic fixture; not market data",
+      "cutoff": "2030-04-19",
+      "pii_stripped": true
+    },
+    {
+      "path": "forecast_spec.json",
+      "role": "input",
+      "license": "MIT",
+      "sha256": "fe5e489e33bda00847d5b96c0bbe9031a246b28cedcd36aa731cef420e787797",
+      "bytes": 158,
+      "split": "public-dev",
+      "redistributable": true,
+      "source": "author-created deterministic synthetic fixture; not market data",
+      "cutoff": "2030-04-19",
+      "pii_stripped": true
+    },
+    {
+      "path": "panels/factors_daily.parquet",
+      "role": "input",
+      "license": "MIT",
+      "sha256": "589ea57b159224bad40ea01933f1bd210ec7a10d0a053e7113bcd41608abda60",
+      "bytes": 18800,
+      "split": "public-dev",
+      "redistributable": true,
+      "source": "author-created deterministic synthetic fixture; not market data",
+      "cutoff": "2030-04-19",
+      "pii_stripped": true
+    },
+    {
+      "path": "text/context.txt",
+      "role": "input",
+      "license": "MIT",
+      "sha256": "905630988fe7f805be8c04e7d6c64f85640208f8d126a0240d16ad49b8a2072a",
+      "bytes": 91,
+      "split": "public-dev",
+      "redistributable": true,
+      "source": "author-created deterministic synthetic fixture; not market data",
+      "cutoff": "2030-04-19",
+      "pii_stripped": true
+    },
+    {
+      "path": "text/corpus_index.json",
+      "role": "input",
+      "license": "MIT",
+      "sha256": "59ef8ee36c89fd672b379df0a3bedb3e5467bd3f2f19497a2c35cfee76726cae",
+      "bytes": 210,
+      "split": "public-dev",
+      "redistributable": true,
+      "source": "author-created deterministic synthetic fixture; not market data",
+      "cutoff": "2030-04-19",
+      "pii_stripped": true
+    }
+  ],
+  "executive_summary": "Exact complete manifest of invented input-only MIT fixtures; no realized outcome.",
+  "coverage": [
+    "."
+  ]
+}

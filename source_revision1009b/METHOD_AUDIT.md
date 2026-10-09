@@ -1,0 +1,71 @@
+## Executive summary (read this first)
+
+The retained corrected V2 is a coherent numerical baseline. Its selected runtime reads dated text but makes no text-driven adjustment and calls no House model. Previous changes to drift, yield factors, volatility, historical selectors and uncertainty have failed their declared tests. The most concrete new evidence mechanism is to assimilate a macro observation that was already published in the supplied corpus but is absent from a publication-lagged monthly panel. The new module supports national seasonally adjusted headline CPI monthly changes and U-3 unemployment levels. It refuses payroll changes because panel-vintage compatibility is unproved. It predicts no future release.
+
+Input-only coverage finds two eligible updates among four actual monthly cards. The existing 346 historical cases contain text in only 17 cases; the new mechanism applies to none of those 17. A 692-pair replay can confirm unchanged predictions, but cannot measure this mechanism's predictive benefit. All previous performance results remain rejected, and no new accuracy claim follows from this source audit.
+
+## What the task actually asks
+
+For example, a factor card with 21 and 63 business-day horizons asks for the sum of future `log1p` decimal simple returns. Its future path starts at zero. A Treasury card asks for yield levels in percentage points, not cumulative yield returns. An FX card asks for a positive spot level. A monthly macro card asks for an explicitly named observation month and specified vintage. A monthly horizon key such as 140 is an output identifier; it is not a number of months.
+
+Every draw is one possible future over the complete requested asset × horizon grid. Joint sampling must retain each draw across assets and later horizons. Preserve the authored asset IDs and horizon keys. Output exactly `forecast.parquet`, `forecast_meta.json`, and nonempty `forecast_rationale.md` using the required contract. The current public guide permits numeric code without House calls, with category `api` and no learned-model disclosure when no learned model is used.
+
+The current score imports fair marginal CRPS, order-one-half variogram and pinball tail loss from `qfbench2-common`. CRPS means the continuous ranked probability score, a proper loss for marginal distributions. A variogram measures the expected powered distance between cells. Pinball evaluates the forecast's extreme quantiles. Each component is divided by an input-only M0 expected-error scale. Multi-cell nominal weights are 0.5/0.3/0.2; a single cell uses 5/7 marginal and 2/7 tail. Historical documents that still describe a PIT coverage penalty or actual trained foundation-model scaffolds are superseded by the current source contract.
+
+The final ranking averages equally over cards. The 346-case ledger averages over historical origins, so repeated origins and units appearing in both partitions change the weight. It covers 95 units, rather than the full 104 structural roster. Future reports should show equal-unit means after averaging origins and seeds inside each unit, while retaining the original equal-origin mean for historical comparability. Neither weighting creates an unexposed holdout.
+
+## What corrected V2 establishes
+
+The saved submission source and public-repository runtime contain the same 430-line forecasting implementation. The robust component uses gap-safe semantic increments, a 40% long/60% recent variance blend, shrunk correlation, and a common Student scale across all cells. Independent interval innovations accumulated across horizons generate nested joint paths. The other component is a coherent Gaussian walk fitted to 300 trailing aligned observations. Fixed 50:50 pooling selects complete draws from the components. It does not average cell values.
+
+The robust daily drift is zero. Monthly non-unemployment drift blends recent and three-year increments. The Gaussian component has its observable historical mean drift. V2 therefore has two distinct centers. Its FX components also use different additive and log coordinates. These are model uncertainty, not one shared mean model. The selected `pool_numeric` path records texts and stress matches, but its applied text multiplier is 1.0. It has no House inference.
+
+V2's verified Linux startup and real gate passes prove interface and structural behavior. Submission 968315 has no official score: the saved organizer message states the evaluation worker was configured incorrectly. That infrastructure failure is separate from forecast quality and from the saved local scoring OOM.
+
+## Why this new mechanism is distinct
+
+Earlier DNS and zero-center proposals changed numerical extrapolation. V13.2 used historical model selection; V14 pooled its output. Stochastic variance and trajectory transports changed simulated future dynamics or distribution shape. Conditional ridge changed conditional means and smoothing. Objective uncertainty scaled part of existing joint rows while preserving the center. Their declared validation criteria failed. Reusing one with a new weight, threshold or favorable family would not be a new supported result.
+
+Publication-lag assimilation changes the information set. A supplied BLS document may state a month of unemployment or a headline CPI monthly change already known at the current as-of, while the monthly numeric panel ends earlier. The module verifies the document's macro-release type and BLS source, embargo date, index timestamp, release-title observation year/month, exact headline quotation, series, unit, and seasonality. A matching observation already present in the panel has zero effect. Renaming the card or document creates no numeric signal. No event ID, calendar table, known outcome or cross-unit value is embedded in the module.
+
+The US CPI monthly headline percentage is seasonally adjusted. A CPI-U index table can be not seasonally adjusted; those levels cannot be mixed with the panel's CPIAUCSL series. The module accepts only the monthly SA headline percentage for the all-urban-consumers index, with the card declaring CPIAUCSL and the 1982–84=100 index unit. Year-on-year percentages, core inflation, subgroup and foreign values are refused. The later release headline can state the immediately preceding month's change; the module uses it only when the explicit month is exactly previous to the release observation month. A missing intervening month stops the chain.
+
+The percentage is rounded. Recursively multiplying a supplied SA panel level by those changes gives an approximate level, not an exact released CPI index. The output labels this and includes a rounding interval. Seasonal revisions remain possible. The module refuses any supplied document carrying correction, corrected, erratum or reissued text; a generic website navigation link `Errata` alone is not a corrected release. It does not infer whether unknown future revisions match a future target vintage.
+
+For UNRATE it accepts only a national unemployment headline in an Employment Situation release, bound to the same observation month, with the explicit seasonally adjusted household-summary-table marker. It rejects subgroup headlines, explicit unadjusted descriptions, wrong unit and incorrect source. A direct level can bridge multiple publication-lag months; a growth-rate chain cannot. NFP/PAYEMS change-only releases are refused: adding a revised monthly change to an older ALFRED snapshot would not establish the corresponding level.
+
+## Whole-path application and centers
+
+Suppose the panel anchor is `L`, a released level is `R`, and `k` months of the panel-to-release gap are now observed. If a numerical component already forecasts drift `d` per month, its anchor innovation is `R - L - k*d`. Adding `R-L` alone would count the old predicted gap trend twice. The module returns this innovation plus `observed_change`, `elapsed_months`, and all evidence, so the caller can use the pooled V2 gap drift rather than blindly using the robust drift.
+
+For a V2 pool, derive the Gaussian per-month drift from its same-call `baseline_record.mean`, the last anchor, and resolved monthly step counts. Average that with the robust drift using the actual fixed pool weights. Then subtract the pooled expected gap trend from the observed change and apply one deterministic asset shift to every draw and requested horizon. Preserve V2's spread. For the single-asset multi-horizon monthly cards this preserves all pairwise cross-horizon differences and their variogram exactly. A future multi-asset grid can change cross-asset distances through different justified asset shifts; joint improvement is not guaranteed.
+
+Do not update model variance, shrink width, rerank draws or re-estimate dynamics inside this experiment. Those would confound the information update. The official monthly helper must verify every requested observation period remains after the new anchor. A target period at or before the assimilated observation is outside this forecast-overlay scope and should refuse. Unknown future vintage corrections remain part of forecast uncertainty.
+
+## Input-only coverage evidence
+
+`RELEASE_COVERAGE.json` was produced by `source/census_release_evidence.py` using existing supplied panels and corpus text. It ran zero forecasts, zero scores, zero target reads, zero House calls and zero external compute. It copies no released numerical level into the audit report.
+
+| Actual monthly task | New eligible observation | Result |
+| --- | --- | --- |
+| CPI six-month glidepath | One missing month of SA headline change | Approximate anchor innovation |
+| U-3 recession-rule watch | One missing month of national SA level | Direct anchor innovation |
+| Emerging payroll shock | No vintage-safe absolute level | Refuse |
+| First-release CPI tail | Latest release observation already in panel | Exact V2 |
+
+The saved 346-case inventory has 329 cases with no cutoff-safe document, or 95.09%. TRAIN has 9 text-bearing origins of 190; reused validation has 8 of 156. By family the text-bearing counts are F1 1/78, F2 2/86, F3 0/78 and F4 14/104. All 17 have a document within 30 days, but none admits this monthly information update. The actual-asof corpus has more relevant recent information than these far-earlier pseudo-origins. Thus full historical equality is expected and is an important limitation.
+
+## Complete test and submission design
+
+1. Freeze source, exact V2 comparator, current toolkit revisions, output grid and seeds before generating predictions. Run the adversarial semantic tests and the complete actual-asof structural roster. Tests cover incorrect monthly mapping, stale facts already observed, conflicting release values, postcutoff documents, embargo mismatch, non-SA/core/foreign CPI, non-SA/subgroup U-3, corrected releases, input immutability, December–January continuity, signed decreases and invalid panel endpoints. These are contract tests, not quality tests.
+2. Compare exact V2 and the one designated release-assimilation candidate on every existing 346 origin with seeds 0 and 103 and 1000 draws. Include all zero-update fallbacks and failures. Freeze all predictions before the separate evaluator reads outcome targets. The predicted result is full equality because input-only eligibility is zero; do not redescribe it as a beneficial forecast test. Report both equal-origin and equal-unit aggregation and exact fallback sample equality.
+3. At the true as-of for all 104 structural cards, record eligible series, evidence, shift application, unsupported reason and runtime. For the two changed monthly cases, verify the output has the correct named target months, complete joint draws, unchanged per-horizon spread, and unchanged cross-horizon differences. Do not reconstruct their target values from sibling units or retrieve realized future releases. Structural coverage is two changed cards, not complete text-reasoning coverage.
+4. If an official development experiment is chosen, submit one immutable candidate after actual Linux nonroot/read-only/no-network structural tests, official public-safety check and exact descriptor/model disclosure validation. The frozen question is whether this audited supplied-information update improves the affected monthly cards. Compare available per-card official receipts with exact V2 once V2 is actually evaluated. Whole-board means and component breakdown should remain complete. A failed or missing organizer evaluation provides no accuracy result. No local 346 threshold should be relaxed to manufacture promotion.
+
+House is optional under the current contract. This deterministic module makes a substantive use of text, but it is not an LLM reasoning system. A later House experiment should be separate: ask the organizer route to extract verified numerical facts and competing interpretations, validate quotes and units, and measure incremental value over this deterministic extraction. The current historical roster supplies no F3 text, so it cannot establish cross-asset House uplift. One actual House response and the complete restricted-mode API path must be verified before claiming runtime House reasoning; mocked replay proves only client behavior.
+
+## Scope and validation status
+
+The module is `source/release_evidence.py`; the audit is `source/census_release_evidence.py`; tests are `source/test_release_evidence.py`. The source module imports only the standard library and accepts caller-owned histories, stats and documents. It does not read files, import scoring, load model weights or use network. Runtime integration belongs to the root task. The current adversarial suite passed 23 tests with Python 3.9 on the local machine. Python 3.9's missing `tomllib` affected the first audit launch; the audit now uses existing `tomli` as its compatibility fallback, and the rerun completed. No runtime forecasting or external scoring was performed by this author.
+
+Source evidence: current public task documents copied into `contract_sources/`, retained `t2/submission1008v2/source/forecast.py`, `t2/handoff_20261009/`, and the existing saved `SOURCE_SCOPE.json`. Prior failed receipts and sources remain unchanged. This document contains method and aggregate audit evidence; it contains no realized target answer.

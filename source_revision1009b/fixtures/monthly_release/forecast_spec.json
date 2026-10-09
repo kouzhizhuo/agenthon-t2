@@ -1,0 +1,16 @@
+{
+  "targets": {
+    "asset_ids": [
+      "CPI_ALL"
+    ],
+    "horizons": [
+      42,
+      65
+    ],
+    "target_type": "level",
+    "observation_periods": [
+      "2030-07",
+      "2030-08"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+# ## Executive summary (read this first)
+# Bundle tested T2 candidates on the immutable retained CPU runtime.
+FROM --platform=linux/amd64 ghcr.io/kouzhizhuo/agenthon-t2@sha256:a74cdd6d29b174144fd3e8a0a9aa3492d9d1228e4301d6ad74a835648e323092
+COPY --chown=65534:65534 --chmod=0444 source/forecast.py source/horizon_contract.py source/return_contract.py source/release_evidence.py source/bootstrap_forecast.py source/house_scenarios.py /app/
+ENV PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+USER 65534:65534
+WORKDIR /app
+LABEL qfbench2.interface_version="2.0"
+ENTRYPOINT ["/usr/local/bin/python", "-B", "/app/forecast.py"]
+CMD ["forecast", "--help"]

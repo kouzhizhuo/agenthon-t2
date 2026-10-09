@@ -1,0 +1,13 @@
+{
+  "targets": {
+    "asset_ids": [
+      "SYN_MKT",
+      "SYN_HML"
+    ],
+    "horizons": [
+      21,
+      63
+    ],
+    "target_type": "log_return"
+  }
+}

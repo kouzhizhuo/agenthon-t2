@@ -1,0 +1,189 @@
+{
+  "executive_summary": "The fixed block-bootstrap candidate is rejected for promotion. The release candidate is a task-information correction; its numerical quality is not established by the reused historical study.",
+  "scoring": "unchanged canonical Track2 3.1.0 composite and shared toolkit v2.6.0; local same-call V2 Gaussian M0 normalization; official reference parity not established",
+  "denominator": {
+    "units": 95,
+    "historical_cases": 346,
+    "seeds": [
+      0,
+      103
+    ],
+    "draws": 1000,
+    "pairs": 692,
+    "arms": [
+      "v2",
+      "release",
+      "block"
+    ],
+    "target_reads": 346,
+    "whole_grid_score_calls": 2076,
+    "new_forecasts": 0,
+    "failures_by_arm": {},
+    "exposed_development_only": true
+  },
+  "full": {
+    "equal_unit": {
+      "v2": {
+        "composite": 4.912596112192825,
+        "clip4": 1.0117858934204373,
+        "clip8": 1.081409054485797
+      },
+      "release": {
+        "composite": 4.912596112192825,
+        "clip4": 1.0117858934204373,
+        "clip8": 1.081409054485797
+      },
+      "block": {
+        "composite": 4.947482664647476,
+        "clip4": 1.0036763203803447,
+        "clip8": 1.076753408325553
+      }
+    },
+    "arithmetic_pair": {
+      "v2": {
+        "composite": 3.1183500203383328,
+        "clip4": 0.9717789007640143,
+        "clip8": 1.0145189770888083
+      },
+      "release": {
+        "composite": 3.1183500203383328,
+        "clip4": 0.9717789007640143,
+        "clip8": 1.0145189770888083
+      },
+      "block": {
+        "composite": 3.1358471424076573,
+        "clip4": 0.9653571845553789,
+        "clip8": 1.010302175063249
+      }
+    }
+  },
+  "validation": {
+    "units": 78,
+    "pairs": 312,
+    "equal_unit": {
+      "v2": {
+        "composite": 0.9708516198748981,
+        "clip4": 0.9508559044138674,
+        "clip8": 0.9708516198748981
+      },
+      "release": {
+        "composite": 0.9708516198748981,
+        "clip4": 0.9508559044138674,
+        "clip8": 0.9708516198748981
+      },
+      "block": {
+        "composite": 0.9646445248669474,
+        "clip4": 0.9432814478652362,
+        "clip8": 0.9646445248669474
+      }
+    }
+  },
+  "families": {
+    "T2-F1": {
+      "units": 20,
+      "pairs": 156,
+      "equal_unit_clip8": {
+        "v2": 1.1437223015688782,
+        "release": 1.1437223015688782,
+        "block": 1.1459334329156978
+      },
+      "block_gain_fraction": -0.0019332764114037282
+    },
+    "T2-F2": {
+      "units": 24,
+      "pairs": 172,
+      "equal_unit_clip8": {
+        "v2": 1.3202008313036881,
+        "release": 1.3202008313036881,
+        "block": 1.3219882881680414
+      },
+      "block_gain_fraction": -0.0013539279948704408
+    },
+    "T2-F3": {
+      "units": 20,
+      "pairs": 156,
+      "equal_unit_clip8": {
+        "v2": 0.7875929611868602,
+        "release": 0.7875929611868602,
+        "block": 0.7739436707065857
+      },
+      "block_gain_fraction": 0.017330386573929935
+    },
+    "T2-F4": {
+      "units": 31,
+      "pairs": 208,
+      "equal_unit_clip8": {
+        "v2": 1.045894676443466,
+        "release": 1.045894676443466,
+        "block": 1.037622993627383
+      },
+      "block_gain_fraction": 0.007908714904459102
+    }
+  },
+  "criteria": {
+    "release": {
+      "checks": {
+        "full_equal_unit_gain_at_least2percent": false,
+        "validation_equal_unit_gain_at_least2percent": false,
+        "no_family_harm_above5percent": true,
+        "no_failed_attempts": true
+      },
+      "passed": false,
+      "full_gain_fraction": 0.0,
+      "validation_gain_fraction": 0.0,
+      "wins": 0,
+      "ties": 692
+    },
+    "block": {
+      "checks": {
+        "full_equal_unit_gain_at_least2percent": false,
+        "validation_equal_unit_gain_at_least2percent": false,
+        "no_family_harm_above5percent": true,
+        "no_failed_attempts": true
+      },
+      "passed": false,
+      "full_gain_fraction": 0.0043051666165840885,
+      "validation_gain_fraction": 0.006393453830514817,
+      "wins": 415,
+      "ties": 4
+    }
+  },
+  "decision": {
+    "block": "REJECTED_UNDER_FROZEN_2_PERCENT_CRITERION",
+    "release": "INFORMATION_CORRECTION_WITH_HISTORICAL_692_TIES; NUMERICAL_QUALITY_UNPROVED",
+    "best_measured_historical_release": "RETAIN_V2_NUMERICAL_BASELINE"
+  },
+  "public_gate_coverage": {
+    "v2": 104,
+    "release": 104,
+    "block": 104,
+    "passed_each": 104,
+    "native_staging_used": true,
+    "final_linux_exact_output_check_required": true
+  },
+  "pins": {
+    "prediction_seal": {
+      "path": "/Volumes/Alan/Nips_com/t2/revision1009_task_complete/paired_predictions_v3/PREDICTION_SEAL.json",
+      "bytes": 3463994,
+      "sha256": "2060364d3baaff5a6307c832a173451c83fdb57136b9c6652e67ab02dcde9948"
+    },
+    "scoring_summary": {
+      "path": "/Volumes/Alan/Nips_com/t2/revision1009_task_complete/paired_scores_v4/SUMMARY.json",
+      "bytes": 768868,
+      "sha256": "9f475935fc7289454fa5c9a155961e68285ee272a31135509d7ce073de47c37f"
+    },
+    "source_protocol": {
+      "path": "/Volumes/Alan/Nips_com/t2/revision1009_task_complete/PROTOCOL.md",
+      "bytes": 4665,
+      "sha256": "f1445d66165d0a6b20887245ab4d77c76ddc0cf501aa7c5085f966aac26302f5"
+    }
+  },
+  "excluded_material": [
+    "realized target values",
+    "panels",
+    "input text",
+    "case outcome rows",
+    "prediction arrays"
+  ],
+  "official_accuracy_or_holdout_proved": false
+}
